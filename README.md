@@ -1,7 +1,3 @@
-Certainly! Here is a more tailored version of the README.md document to fit your corporate website project:
-
----
-
 # Sørensen og Balchen Corporate Website
 
 Welcome to the GitHub repository for the [Sørensen og Balchen](https://sogb.no) corporate website. This project leverages the power of [SvelteKit](https://kit.svelte.dev/) for a dynamic frontend experience and [Sanity.io](https://sanity.io/) for streamlined content management.
