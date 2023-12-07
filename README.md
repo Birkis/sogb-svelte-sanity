@@ -1,65 +1,64 @@
-# A minimal SvelteKit site with Sanity Studio
+# Sørensen og Balchen Corporate Website
 
-This starter uses [SvelteKit](https://kit.svelte.dev/) for the frontend and [Sanity](https://sanity.io/) to handle its content.
+Welcome to the GitHub repository for the [Sørensen og Balchen](https://sogb.no) corporate website. This project leverages the power of [SvelteKit](https://kit.svelte.dev/) for a dynamic frontend experience and [Sanity.io](https://sanity.io/) for streamlined content management.
 
-## Featuring
+## Key Features
 
-- How to fetch content as data from [the Sanity Content Lake](https://www.sanity.io/docs/datastore)
-- How to render block content with [Portable Text](https://www.sanity.io/docs/presenting-block-text)
-- A [Sanity Studio](https://www.sanity.io/docs/sanity-studio) to create and edit content
-- How to crop and render images with [Sanity Image URLs](https://www.sanity.io/docs/image-url)
+- Fetching and integrating content from [the Sanity Content Lake](https://www.sanity.io/docs/datastore).
+- Rendering block content seamlessly with [Portable Text](https://www.sanity.io/docs/presenting-block-text).
+- Utilizing [Sanity Studio](https://www.sanity.io/docs/sanity-studio) for effortless content creation and editing.
+- Image management including cropping and rendering using [Sanity Image URLs](https://www.sanity.io/docs/image-url).
 
-> **Note**
+> **Important**
 >
-> This starter features an `/app` and a `/studio` folder. The `/app` folder contains the frontend code, and the `/studio` folder contains the Sanity Studio code.
+> This repository is organized into two main folders: `/app` and `/studio`. The `/app` folder houses the frontend code (SvelteKit), while the `/studio` folder contains the Sanity Studio code for content management.
 >
-> This is **not** a monorepo setup. We put them both in one repository for the sake of simplicity. You might want to have separate repositories for each of the folders, to make it easier to deploy the app and the studio separately.
+> Despite being housed in a single repository for ease of access, this is **not** a monorepo setup. You may consider separating these folders into individual repositories for independent deployment of the app and the studio components.
 
-## Prerequisities
+## Pre-requisites
 
 - [Node.js](https://nodejs.org/en/) (v14.18 or later)
-- [Sanity CLI](https://www.sanity.io/docs/getting-started-with-sanity-cli) (optional)
+- [Sanity CLI](https://www.sanity.io/docs/getting-started-with-sanity-cli) (optional, but recommended)
 
-## Getting started
+## Getting Started
 
-The following commands are meant to be run in **both** the `/app` and `/studio` folders.
+Follow these steps in **both** the `/app` and `/studio` directories to set up your development environment:
 
-1. `npm install` to install dependencies
-2. `npx -y sanity@latest init --env`, this will:
+1. Execute `npm install` to install the necessary dependencies.
+2. Run `npx -y sanity@latest init --env`, during this process:
+   - Choose or create a Sanity project and dataset. Ensure to use the same Sanity project and dataset for both folders.
+   - A `.env` file will be generated with the necessary environment variables.
+   - Alternatively, you can use `sanity init --env` if you have the CLI installed.
+3. Update your environment variables in the `/app` folder to include the `PUBLIC_` prefix: `PUBLIC_SANITY_DATASET` and `PUBLIC_SANITY_PROJECT_ID`.
+4. Start the development server with `npm run dev`.
 
-- ask you to select or create a Sanity project and dataset, use the same Sanity project and dataset in both folders.
-- output a `.env` file with appropriate variables
-- _(or use `sanity init --env` if you have the CLI installed)_
+You can now access your SvelteKit app at [http://localhost:5173/](http://localhost:5173/) and the Sanity Studio at [http://localhost:3333/](http://localhost:3333/).
 
-4. Prefix your environment variables in the SvelteKit `/app` folder with `PUBLIC_`, they should be `PUBLIC_SANITY_DATASET` and `PUBLIC_SANITY_PROJECT_ID`.
-3. `npm run dev` to start the development server
+Feel free to relocate each of the folders and manage them in separate version control systems if preferred.
 
-Your SvelteKit app should now be running on [http://localhost:5173/](http://localhost:5173/) and Studio on [http://localhost:3333/](http://localhost:3333/).
+### Adding Content
 
-_Feel free to move each of the folders to their own location and check them into version control._
+1. Navigate to the Studio to create and publish a new `Post` document.
+2. Refresh the app page to view the newly rendered content.
 
-### Add content
+You can customize the schema for the `Post` document within the `/studio/schemas` folder. Add more documents and schemas to extend the functionality as per your requirements.
 
-1. Visit the Studio and create and publish a new `Post` document
-2. Visit the App and refresh the page to see your content rendered on the page
+## Opting Out of TypeScript
 
-The schema for the `Post` document is defined in the `/studio/schemas` folder. You can add more documents and schemas to the Studio to suit your needs.
+If TypeScript is not required for your project, follow these steps:
 
-## Removing TypeScript
+1. Run `npm install` in the repository root to install dependencies.
+2. Execute `node remove-typescript.mjs` to remove TypeScript configurations and types from both the `/app` and `/studio` directories.
 
-If you do not wish to use TypeScript, we've included a `remove-typescript.mjs` file in the root of this repository.
+Following this, you can delete any files in the repository root, excluding the `/studio` and `/app` folders, if you don't plan on using TypeScript.
 
-To run this file, you must:
+## Deployment Guidelines
 
-1. Run `npm install` in the repository root to install dependencies
-2. Run `node remove-typescript.mjs` to strip all types from both the `/app` and `/studio` folders
+The `/app` and `/studio` directories are designed to be deployed separately. Here are some guidelines:
 
-If you intend to use TypeScript or have stripped TypeScript, you can safely delete all files in the repository root that isn't `/studio` or `/app`.
+- For deploying the app, we recommend platforms like [Vercel](https://vercel.com/) for a hassle-free experience.
+- Deploy Sanity Studio by executing `sanity deploy` within the `/studio` directory (requires `@sanity/cli` to be installed globally).
 
-## Deployments
+---
 
-The `/app` and `/studio` folders are meant to be deployed separately.
-
-Feel free to deploy the App to whichever hosting provider you prefer. We recommend [Vercel](https://vercel.com/).
-
-You can deploy the Sanity Studio by running `sanity deploy` in the `/studio` repository, provided you have the `@sanity/cli` installed globally.
+I hope this meets your project's needs! If you have any further customization requests, feel free to ask.
