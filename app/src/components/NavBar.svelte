@@ -29,7 +29,7 @@
         <div class="-ml-2 mr-2 flex items-center md:hidden">
           
           <!-- Mobile menu button -->
-          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
+          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" on:click={() => isOpen = !isOpen}>
             <span class="absolute -inset-0.5"></span>
             <span class="sr-only">Open main menu</span>
             <!--
@@ -92,6 +92,7 @@
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
+  {#if isOpen}
   <div class="md:hidden" id="mobile-menu">
     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
       {#each navLinks as link}
@@ -105,4 +106,7 @@
     </div>
  
   </div>
+  {/if}
 </nav>
+
+
