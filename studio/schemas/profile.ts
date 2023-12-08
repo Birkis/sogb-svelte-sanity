@@ -67,12 +67,17 @@ export default {
         options: {
             list: [
                 { title: 'Ledelse', value: 'ledelse' },
-                { title: 'Sales', value: 'sales' },
-                { title: 'Marketing', value: 'marketing' },
-                { title: 'Product', value: 'product' },
-                { title: 'Purchasing', value: 'purchasing' },
-                { title: 'Technical service', value: 'technicalService' },
+                { title: 'Salg', value: 'sales' },
+                { title: 'Markedsføring', value: 'marketing' },
+                { title: 'Produkt', value: 'product' },
+                { title: 'Innkjøp', value: 'purchasing' },
+                { title: 'Teknisk', value: 'technicalService' },
                 { title: 'Diesel', value: 'diesel' },
+                { title: 'HR', value: 'hr' },
+                { title: 'Økonomi', value: 'finance' },
+                { title: 'IT', value: 'it' },
+                { title: 'Lager', value: 'lager' },
+                { title: 'Kundeservice', value: 'Kundeservice' },
    
             ],
         },

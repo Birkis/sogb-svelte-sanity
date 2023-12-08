@@ -7,7 +7,7 @@
 </script>
 
 
-<div class="bg-transparent text-sm flex flex-col items-start py-24">
+<div class="bg-transparent text-sm flex flex-col items-start py-4 md:py-24">
     {#if post.mainImage}
         <img
             class="w-[500px] h-[300px] object-cover rounded-md"
