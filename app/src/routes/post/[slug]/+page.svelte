@@ -14,20 +14,20 @@
 <section class="post">
 	{#if data.mainImage}
 		<img
-			class="post__cover"
+			class=" w-full max-h-[500px] object-cover"
 			src={urlFor(data.mainImage).url()}
-			alt="Cover image for {data.title}"
+			alt={`Cover image for ${data.title}`}
 		/>
 	{:else}
-		<div class="post__cover--none" />
+		<div class=" " />
 	{/if}
-	<div class="post__container">
-		<h1 class="post__title">{data.title}</h1>
-		<p class="post__excerpt">{data.excerpt}</p>
-		<p class="post__date">
+	<div class="mx-auto max-w-[80%] py-24">
+		<h1 class="text-4xl font-bold">{data.title}</h1>
+		<p class="text-sm text-gray-500 pb-4">
 			{formatDate(data._createdAt)}
 		</p>
-		<div class="post__content">
+		<p class="text-lg mb-4">{data.excerpt}</p>
+		<div class="prose">
 			<PortableText value={data.body} />
 		</div>
 	</div>
