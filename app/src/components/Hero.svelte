@@ -1,7 +1,13 @@
-<div class="bg-slate-950 w-full relative">
-	<img src="image_1.png" alt="Background" class="absolute inset-0 w-full h-full object-cover z--10 opacity-50">
+<script lang="ts">
+	import { urlFor } from '$lib/utils/image';
+	import type { Hero } from '$lib/utils/sanity';
+	export let hero: Hero;
 
-	<div class="relative isolate px-6 pt-14 lg:px-8">
+</script>
+
+
+<div class="bg-slate-950 w-full relative">
+	<img src={urlFor(hero.backgroundImage).width(1600).quality(30).url()} alt="Background" class="absolute inset-0 w-full h-full object-cover z--10 opacity-50">	<div class="relative isolate px-6 pt-14 lg:px-8">
 		<div
 			class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
 			aria-hidden="true"
@@ -11,28 +17,28 @@
 				<div
 					class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-100 ring-1 ring-gray-100/70 hover:ring-gray-900/20"
 				>
-					Read more about Sørensen & Balchen. 
-					<a href="/about" class="font-semibold text-indigo-600"
-						><span class="absolute inset-0" aria-hidden="true" />Read more
+					Finn sikkerhetsdatablad. 
+						<a href="https://app.ecoonline.com/public/search-configuration/search?companyID=1002502&prodType=er&descrLang=1" class="font-bold text-white"
+						><span class="absolute inset-0" aria-hidden="true" />Les mer
 						<span aria-hidden="true">&rarr;</span></a
 					>
 				</div>
 			</div>
 			<div class="text-center">
 				<h1 class="text-4xl font-bold tracking-tight text-gray-100 sm:text-6xl">
-					Sørensen & Balchen - siden 1907
+					{hero.heading}
 				</h1>
 				<p class="mt-6 text-lg leading-8 text-gray-200">
-					AS Sørensen og Balchen is Norway’s oldest used parts and accessories wholesaler
+					{hero.subheading}				
 				</p>
 				<div class="mt-10 flex items-center justify-center gap-x-6">
 					<a
-						href="#"
+						href="{hero.primaryCta.link}"
 						class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-						>Get started</a
+						>{hero.primaryCta.label}</a
 					>
-					<a href="#" class="text-sm font-semibold leading-6 text-gray-100"
-						>Learn more <span aria-hidden="true">→</span></a
+					<a href="{hero.secondaryCta.link}" class="text-sm font-semibold leading-6 text-gray-100"
+						>{hero.secondaryCta.label} <span aria-hidden="true">→</span></a
 					>
 				</div>
 			</div>

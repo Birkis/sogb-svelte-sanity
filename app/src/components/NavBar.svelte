@@ -8,7 +8,6 @@
     { name: 'HMS', href: '/hms' },
     { name: 'Ansatte', href: '/people'},
     { name: 'Kontakt', href: '/contact' },
-    { name: 'Nyheter', href: '/news'},
     {name: 'BilXtra', href: '/bilxtra'}
   ];
 
@@ -22,7 +21,7 @@
 </script>
 
 
-<nav class="bg-gray-800">
+<nav class="bg-gray-950">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="flex h-16 justify-between">
       <div class="flex">
@@ -52,8 +51,9 @@
         
         </div>
         <div class="flex flex-shrink-0 items-center">
-          <img class="w-64" src="logo.webp" alt="Your Company">
-        </div>
+          <a href="/">
+            <img class="w-64" src="logo.webp" alt="Your Company">
+          </a>        </div>
         <!-- actual buttons -->
         <div class="hidden md:ml-6 md:flex md:items-center md:space-x-4">
           {#each navLinks as link}

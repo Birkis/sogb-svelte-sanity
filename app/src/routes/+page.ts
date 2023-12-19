@@ -1,25 +1,25 @@
-import { getPosts, getBanner } from '$lib/utils/sanity';
+import { getPosts, getBanner, getHero, getSalesTeam } from '$lib/utils/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
   try {
 	// henter alle de objektene jeg trenger via getBlabla metoden
-    const [posts, banner] = await Promise.all([getPosts(), getBanner()]);
+    const [posts, banner, hero, salesTeam] = await Promise.all([getPosts(), getBanner(), getHero(), getSalesTeam()]);
 
-    if (!posts) {
-      throw error(404, 'Posts not found');
-    }
-
-    if (!banner) {
-      throw error(404, 'Banner not found');
-    }
+    ['posts', 'banner', 'hero','salesTeam'].forEach(item => {
+      if (!eval(item)) {
+        throw error(404, `${item.charAt(0).toUpperCase() + item.slice(1)} not found`);
+      }
+    });
 
 	// sender de til +page.svelte for denne routen med props - De må dekonstrueres på frontend
     return {
       props: {
         posts,
         banner,
+        hero,
+        salesTeam
       },
     };
   } catch (err) {

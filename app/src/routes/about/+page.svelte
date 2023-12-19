@@ -1,20 +1,15 @@
 <script lang="ts">
-	import type { PageData } from '../about/$types';
 
-	export let data: PageData;
+	export let data;
 
-	// Henter inn data fra Crystallize
-	const cat = data.bunnies.catalogue.children;
+
+
+
 </script>
 
 
-<!-- morsom sak hvor vi henter inn data fra Crystallize -->
-<!-- 
-{#each cat as item}
 
-    <p>{item.name}</p>
 
-{/each} -->
 <div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">    
     <h1 class="text-4xl font-bold text-center py-5">Om Sørensen og Balchen</h1>
     <p class="text-md text-justify">
@@ -64,4 +59,8 @@
                 distributøren i Norge til tilbehørs- og verkstedsektoren.
         </p>
     </div>
+
+
+
 </div>
+

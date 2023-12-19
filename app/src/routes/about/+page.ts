@@ -1,33 +1,18 @@
 import type { PageLoad } from './$types';
-import { createClient } from '@crystallize/js-api-client';
+import { error } from '@sveltejs/kit';
+import { getPageContent } from '$lib/utils/sanity';
 
 
 
+export const load: PageLoad = async () => {
+    const pages = await getPageContent();
+    if (pages && pages.length > 0) {
+        return {
+            props: {
+                page: pages[0], // return the first page
+            },
+        };
+    }
 
-
-export const load = (async () => {
-
-    const CrystallizeClient = createClient({
-        tenantIdentifier: 'bunny-rabbits',
-    });
-
-    const bunnies = await CrystallizeClient.catalogueApi(`query{  
-        catalogue(language: "en", path: "/") {
-            children{
-            name
-            createdAt
-            type
-            path
-            children {
-                name
-            }
-            }
-        }
-    
-        }`);
-    
-
-    return {
-        bunnies
-    };
-}) satisfies PageLoad;
+    throw error(404, 'Not found');
+};

@@ -1,21 +1,23 @@
 <script lang="ts">
-	import Card from '../components/Card.svelte';
 	import Card2 from '../components/Card2.svelte';
 	import Welcome from '../components/Welcome.svelte';
 	import type { PageData } from './$types';
 	import Hero from '../components/Hero.svelte';
-	import Stats from '../components/Stats.svelte';
-	import Footer from '../components/Footer.svelte';
 	import HighlightedPeople from '../components/HighlightedPeople.svelte';
+	import Banner from '../components/Banner.svelte';
 
 	export let data: PageData;
-	const { posts, banner } = data.props;
+	const { posts, hero, banner, salesTeam } = data.props;
 
-	console.log('Posts:', posts);
-	console.log('Banner:', banner);
+	
+	console.log("The banner object is:", banner);
+
+
+
 </script>
 	
-<Hero />
+<Hero {hero} />
+
 
 
 <!-- The first section of posts -->
@@ -33,5 +35,11 @@
 	</section>
 </div>
 
+
+<!-- Banner -->
+<Banner {banner}/>
+
+
+
 <!-- Highlighted people -->
-<HighlightedPeople />
+<HighlightedPeople {salesTeam}/>
