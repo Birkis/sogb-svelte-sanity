@@ -69,6 +69,25 @@ export async function getSalesTeam(): Promise<SalesTeamBlock> {
 	}
 }
 
+export async function getContactDetails(): Promise<ContactDetails> {
+	try {
+		return await client.fetch(groq`*[_type == "contactDetails"][0]`);
+	} catch (error) {
+		console.error('Error fetching contact details:', error);
+		throw error;
+	}
+}
+
+export async function getBilXtraIfo(): Promise<BilXtra> {
+	try {
+		return await client.fetch(groq`*[_type == "bilXtra"][0]`);
+	} catch (error) {
+		console.error('Error fetching BilXtra info:', error);
+		throw error;
+	}
+
+}
+
 
 export interface Post {
 	_type: 'post';
@@ -189,3 +208,66 @@ export interface SalesTeamBlock {
 	salesPeople: SalesPerson[];
 	bottomText: string;
   }
+
+
+interface Customer {
+// Define the structure for 'customer' type here
+	id: string;
+	name: string;
+}
+
+interface SocialMediaLink {
+// Define the structure for 'socialMediaLink' type here
+// Example:
+	platform: string;
+	url: string;
+}
+  
+export interface ContactDetails {
+	_type: 'contactDetails';
+	businessAddress: string;
+  }
+
+
+export interface BilXtra {
+	title: string;
+	excerpt: string;
+	mainImage: {
+	  // Assuming mainImage follows the standard Sanity image structure
+	  _type: 'image';
+	  asset: {
+		_ref: string;
+		_type: 'reference';
+	  };
+	  crop?: {
+		_type: 'sanity.imageCrop';
+		top: number;
+		bottom: number;
+		left: number;
+		right: number;
+	  };
+	  hotspot?: {
+		_type: 'sanity.imageHotspot';
+		x: number;
+		y: number;
+		height: number;
+		width: number;
+	  };
+	};
+	body: BlockContent[];
+  }
+  
+  // Define BlockContent according to how you've structured 'blockContent' in Sanity
+  export interface BlockContent {
+	// This will depend on your 'blockContent' type definition in Sanity
+	// For example:
+	_type: 'block';
+	children: {
+	  _type: 'span';
+	  text: string;
+	  marks?: string[];
+	}[];
+	style: string;
+	// ... any other properties you have defined for blockContent
+  }
+  

@@ -1,7 +1,3 @@
-
-
-
-
 export default {
     name: 'profile',
     title: 'Employee Profile',

@@ -5,7 +5,7 @@
   const navLinks = [
     { name: 'Hjem', href: '/' },
     { name: 'Om oss', href: '/about' },
-    { name: 'HMS', href: '/hms' },
+    // { name: 'HMS', href: '/hms' },
     { name: 'Ansatte', href: '/people'},
     { name: 'Kontakt', href: '/contact' },
     {name: 'BilXtra', href: '/bilxtra'}

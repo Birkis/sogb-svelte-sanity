@@ -1,42 +1,39 @@
-<script lang="ts">
-    import type { PageData } from './$types';
-    import { contactInfo } from '$lib/contactInfo';   
-    export let data: PageData;
 
-    console.log("The contactInfo object is:", contactInfo);
+
+<script >
+    import { contactInfo } from "$lib/contactInfo";
+
+   
 
 </script>
+
 <head>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
 </head>
 
+<!-- Add this debug element -->
 <div class="p-6">
-    <h1 class="text-2xl font-bold mb-4">{contactInfo.title}</h1>
+    <h1 class="text-2xl font-bold mb-4">Kontakt Oss</h1>
     <div class="flex flex-col md:flex-row md:space-x-6">
         <section class="mb-6 md:w-1/4">
             <h2 class="text-xl font-semibold mb-2">Adresse</h2>
-            <p class="mb-2">{contactInfo.location.address}</p>
-            <p>Åpningstider: {contactInfo.location.openingHours}</p>
+            <p class="mb-2">{contactInfo.location.kontoradresse}</p>
+            
+            <p>Åpningstider: {contactInfo.location.åpningstider}</p>
         </section>
         <section class="mb-6 md:w-1/4">
             <section class="pb-4">
                 <h2 class="text-xl font-semibold mb-2">Kontakt - Kontor</h2>
-                <p>Telefon: {contactInfo.contactOffice.phone}</p>
-                <p>E-post: <a href="mailto:{contactInfo.contactOffice.email}" class="text-blue-500 underline">{contactInfo.contactOffice.email}</a></p>
+                <p>Telefon: {contactInfo.contactOffice.Telefon}</p>
+                <p>E-post: <a href="mailto:{contactInfo.contactOffice.epost}" class="text-blue-500 underline">{contactInfo.contactOffice.epost}</a></p>
                 <p>Org.nr: {contactInfo.contactOffice.orgNumber}</p>
             </section>
             <section class="pt-8">
                 <h2 class="text-xl font-semibold mb-2">Kontakt - Ordre</h2>
-                <p>Telefon: {contactInfo.contactOrders.phone}</p>
+                <p>Telefon: {contactInfo.contactOrders.telefon}</p>
             </section>
             <section class="my-6">
-                <h2 class="text-xl font-semibold mb-2">Følg Oss</h2>
-                <a href={contactInfo.socialMedia.facebook} class="text-blue-500 underline mr-4">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href={contactInfo.socialMedia.linkedIn} class="text-blue-500 underline">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
+
             </section>
         </section>
 
