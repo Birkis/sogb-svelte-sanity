@@ -2,8 +2,40 @@
 	import { formatDate } from '$lib/utils';
 	import { urlFor } from '$lib/utils/image';
     import type { Post } from '$lib/utils/sanity'
+    import type { PortableText } from '@portabletext/svelte';
 
     export let post: Post 
+
+    console.log("The post object is:", post);
+
+    // Function to render the appropriate HTML element based on the style
+    function renderElement(block:any) {
+    switch(block.style) {
+        case 'h1':
+            return `<h1>${renderChildren(block.children)}</h1>`;
+        case 'h2':
+            return `<h2>${renderChildren(block.children)}</h2>`;
+        // Add more cases for different styles
+        default:
+            return `<p>${renderChildren(block.children)}</p>`;
+        }
+    }
+
+    // Function to apply marks like bold, italic, etc.
+    function renderChildren(children:any) {
+        // Check if children is an array before mapping over it
+        if (Array.isArray(children)) {
+            return children.map(child => {
+                if (child.marks && child.marks.includes('bold')) {
+                    return `<strong>${child.text}</strong>`;
+                }
+                // Add more cases for different marks
+                return child.text;
+            }).join('');
+        }
+        return ''; // Return empty string if children is not an array
+    }
+
 </script>
 
 
@@ -30,7 +62,7 @@
             <div class="mt-4 text-gray-500">
                 {#each post.body as block (block._key)}
                     {#each block.children as child (child._key)}
-                        <p class="truncate-4">{@html child.text}</p>
+                        {@html renderElement(child)}    
                     {/each}
                 {/each}
             </div>

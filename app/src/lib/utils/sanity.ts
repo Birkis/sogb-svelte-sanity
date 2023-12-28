@@ -192,6 +192,9 @@ export interface Employee {
 	name: string;
 	title: string;
 	image: ImageAsset;
+	department: string;
+	firstName: string;
+	lastName: string;
 }
 
 

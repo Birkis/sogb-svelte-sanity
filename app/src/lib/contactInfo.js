@@ -2,19 +2,19 @@
 export const contactInfo = {
     title: "Kontakt Oss",
     location: {
-        kontoradresse: "Rosenholmveien 12, 1252 Oslo",
-        postadresse: "Postboks 134 Holmlia, 1203 Oslo",
+        Kontoradresse: "Rosenholmveien 12, 1252 Oslo",
+        Postadresse: "Postboks 134 Holmlia, 1203 Oslo",
 
-        åpningstider: "Hverdager 08:00 - 16:00"
+        Åpningstider: "Hverdager 08:00 - 16:00"
     },
     contactOffice: {
         Telefon: "+47 22 76 44 00",
-        epost: "sogb@sogb.no",
-        orgNumber: "916591144"
+        Epost: "sogb@sogb.no",
+        'Org.Nr': "916591144"
     },
     contactOrders: {
-        telefon: "+47 22 76 44 44",
-        epost: "sogb@sogb.no"
+        Telefon: "+47 22 76 44 44",
+        Epost: "sogb@sogb.no"
     },
     socialMedia: {
         Facebook: "https://www.facebook.com/sorensenogbalchen",
