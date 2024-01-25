@@ -1,11 +1,11 @@
-import { getPosts, getBanner, getHero, getSalesTeam } from '$lib/utils/sanity';
+import { getPosts, getBanner, getHero, getSalesTeam, getHomePage } from '$lib/utils/sanity';
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 
 export const load: PageLoad = async () => {
   try {
 	// henter alle de objektene jeg trenger via getBlabla metoden
-    const [posts, banner, hero, salesTeam] = await Promise.all([getPosts(), getBanner(), getHero(), getSalesTeam()]);
+    const [posts, banner, hero, salesTeam, homepage] = await Promise.all([getPosts(), getBanner(), getHero(), getSalesTeam(), getHomePage()]);
 
     ['posts', 'banner', 'hero','salesTeam'].forEach(item => {
       if (!eval(item)) {
@@ -19,7 +19,8 @@ export const load: PageLoad = async () => {
         posts,
         banner,
         hero,
-        salesTeam
+        salesTeam,
+        homepage        
       },
     };
   } catch (err) {

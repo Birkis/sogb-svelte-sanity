@@ -29,6 +29,85 @@ export async function getPost(slug: string): Promise<Post> {
 	});
 }
 
+export async function getHomePage(): Promise<Homepage> {
+
+	let query = groq`*[_type == "homepage"] {
+		title,
+		"pageBuilderContent": pageBuilder[] {
+		  _key,
+		  _type,
+		  _type == "salesTeamBlock" => {
+            ...
+          },
+		  _type == "banner" => {
+            "banner": @-> {
+              ...
+            }
+          },
+		  _type == "hero" => {
+				"hero": @-> {
+				...
+				}
+			},
+		  // Resolve references for 'postsGrid'
+		  _type == "postsGrid" => {
+			"selectedPosts": selectedPosts[]-> {
+			  _id,
+			  title,
+			  slug,
+			  excerpt,
+			  mainImage {
+				asset->{
+				  _id,
+				  url
+				}
+			  }
+			  // Add other fields as needed
+			}
+		  },
+		  // Resolve references for 'customerGrid'
+		  _type == "customerGrid" => {
+			"selectedCustomers": selectedCustomers[]-> {
+			  _id,
+			  kundeNavn, // Assuming this is the customer name
+			  kundeLogo, // Assuming this is the customer logo
+			  kundeLink  // Assuming this is the link to the customer
+			}
+		  },
+		  // Resolve 'existingPost' reference
+		  _type == "existingPost" => {
+			
+			"existingPostContent": @-> {
+			  ...
+			} 
+			// Add other fields as needed
+		  },
+		  // Resolve 'salesPeople' reference
+		  _type == "salesPeople" => {
+			"salesPeopleBlock": @->{
+			  mainTitle,
+			  subTitle,
+			  "salesPeople": salesPeople[]{
+				_key,
+				description,
+				"image": image.asset->{
+				  _id,
+				  url,
+				  alt
+				}
+			  },
+			  bottomText
+			}
+		  }
+		  // Other types can be added here
+		}
+	  }
+	  `;
+
+	return await client.fetch(query);
+
+}
+
 // Tok meg litt tid å finne ut at jeg måtte definere Banner som en array her. 
 // Men siden jeg skal hente alle banners, så blir det altså en array
 // DVS. Hvis jeg hadde en unik banner jeg skulle hentet så hadde jeg naturligvis endret på
@@ -87,7 +166,6 @@ export async function getBilXtraIfo(): Promise<BilXtra> {
 	}
 
 }
-
 
 export interface Post {
 	_type: 'post';
@@ -212,7 +290,6 @@ export interface SalesTeamBlock {
 	bottomText: string;
   }
 
-
 interface Customer {
 // Define the structure for 'customer' type here
 	id: string;
@@ -227,50 +304,127 @@ interface SocialMediaLink {
 }
   
 export interface ContactDetails {
-	_type: 'contactDetails';
-	businessAddress: string;
-  }
+_type: 'contactDetails';
+businessAddress: string;
+}
 
 
 export interface BilXtra {
-	title: string;
-	excerpt: string;
-	mainImage: {
-	  // Assuming mainImage follows the standard Sanity image structure
-	  _type: 'image';
-	  asset: {
-		_ref: string;
-		_type: 'reference';
-	  };
-	  crop?: {
-		_type: 'sanity.imageCrop';
-		top: number;
-		bottom: number;
-		left: number;
-		right: number;
-	  };
-	  hotspot?: {
-		_type: 'sanity.imageHotspot';
-		x: number;
-		y: number;
-		height: number;
-		width: number;
-	  };
+title: string;
+excerpt: string;
+mainImage: {
+	// Assuming mainImage follows the standard Sanity image structure
+	_type: 'image';
+	asset: {
+	_ref: string;
+	_type: 'reference';
 	};
-	body: BlockContent[];
-  }
-  
-  // Define BlockContent according to how you've structured 'blockContent' in Sanity
-  export interface BlockContent {
-	// This will depend on your 'blockContent' type definition in Sanity
-	// For example:
-	_type: 'block';
-	children: {
-	  _type: 'span';
-	  text: string;
-	  marks?: string[];
-	}[];
-	style: string;
-	// ... any other properties you have defined for blockContent
-  }
-  
+	crop?: {
+	_type: 'sanity.imageCrop';
+	top: number;
+	bottom: number;
+	left: number;
+	right: number;
+	};
+	hotspot?: {
+	_type: 'sanity.imageHotspot';
+	x: number;
+	y: number;
+	height: number;
+	width: number;
+	};
+};
+body: BlockContent[];
+}
+
+// Define BlockContent according to how you've structured 'blockContent' in Sanity
+export interface BlockContent {
+// This will depend on your 'blockContent' type definition in Sanity
+// For example:
+_type: 'block';
+children: {
+	_type: 'span';
+	text: string;
+	marks?: string[];
+}[];
+style: string;
+// ... any other properties you have defined for blockContent
+}
+
+
+export interface RichTextBlock {
+_key?: string;
+_type: string;
+style?: string;
+children: {
+	_key?: string;
+	_type: string;
+	text?: string;
+	marks?: string[];
+}[];
+listItem?: string;
+markDefs?: {
+	_key: string;
+	_type: string;
+	href?: string;
+}[];
+}
+
+interface Homepage {
+title: string;
+pageBuilder: Array<
+	Hero |
+	TextWithImage |
+	Gallery |
+	Form |
+	Video |
+	GridLayout |
+	SalesPeopleBlock |
+	ImageGallery |
+	Banner |
+	BilXtra |
+	Profile |
+	PostsGrid |
+	CustomerGrid |
+	ExistingPost
+>;
+}
+
+interface TextWithImage {
+
+_type: 'textWithImage';
+}
+
+interface Gallery {
+_type: 'gallery';
+	}
+
+interface Form {
+_type: 'form';
+}
+
+interface Video {
+_type: 'video';
+}	
+
+interface GridLayout {
+_type: 'gridLayout';
+}
+
+interface SalesPeopleBlock {
+_type: 'salesPeopleBlock';
+}	
+
+interface Profile {
+_type: 'profile';
+}
+
+interface PostsGrid {
+_type: 'postsGrid';
+}
+
+interface CustomerGrid {
+_type: 'customerGrid';
+}
+
+

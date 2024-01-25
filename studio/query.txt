@@ -1,0 +1,58 @@
+*[_type == "homepage"] {
+  title,
+  "pageBuilderContent": pageBuilder[] {
+    _key,
+    _type,
+    // Resolve references for 'postsGrid'
+    _type == "postsGrid" => {
+      "selectedPosts": selectedPosts[]-> {
+        _id,
+        title,
+        slug,
+        excerpt,
+        mainImage {
+          asset->{
+            _id,
+            url
+          }
+        }
+        // Add other fields as needed
+      }
+    },
+    // Resolve references for 'customerGrid'
+    _type == "customerGrid" => {
+      "selectedCustomers": selectedCustomers[]-> {
+        _id,
+        kundeNavn, // Assuming this is the customer name
+        kundeLogo, // Assuming this is the customer logo
+        kundeLink  // Assuming this is the link to the customer
+      }
+    },
+    // Resolve 'existingPost' reference
+    _type == "existingPost" => {
+      "post": @->_ {
+        _id,
+        title
+        // Add other fields as needed
+      }
+    },
+    // Resolve 'salesPeople' reference
+    _type == "salesPeople" => {
+      "salesPeopleBlock": @->{
+        mainTitle,
+        subTitle,
+        "salesPeople": salesPeople[]{
+          _key,
+          description,
+          "image": image.asset->{
+            _id,
+            url,
+            alt
+          }
+        },
+        bottomText
+      }
+    }
+    // Other types can be added here
+  }
+}

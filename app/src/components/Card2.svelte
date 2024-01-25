@@ -6,7 +6,6 @@
 
     export let post: Post 
 
-    console.log("The post object is:", post);
 
     // Function to render the appropriate HTML element based on the style
     function renderElement(block:any) {
@@ -56,7 +55,7 @@
                 {post.title}
             </a>
         </h3>
-        <p class="mt-2 truncate-2 font-bold">{post.excerpt}</p>
+        <p class="mt-2 truncate-4 font-bold">{post.excerpt}</p>
 
         {#if post.body}
             <div class="mt-4 text-gray-500">

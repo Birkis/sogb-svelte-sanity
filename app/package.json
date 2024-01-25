@@ -19,7 +19,7 @@
 		"svelte-routing": "^2.4.0"
 	},
 	"devDependencies": {
-		"@portabletext/svelte": "^2.0.0",
+		"@portabletext/svelte": "^2.1.5",
 		"@portabletext/types": "^2.0.2",
 		"@sanity/types": "^3.7.1",
 		"@sveltejs/adapter-auto": "^2.0.0",

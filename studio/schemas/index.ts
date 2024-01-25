@@ -11,7 +11,12 @@ import socialMediaLink from './socialMediaLink'
 import contactDetails from './contactDetails'
 import kunde from './kunde'
 import bilXtra from './bilXtra'
-
+import { gridItem, gridLayout } from './itemGrid'
+import { ContentPage } from './landingPage/landingPage'
+import { gallery, video, textWithImage, landingPageHero, form } from './landingPage/landingPageComponents'
+import {homepage} from './homepage'
+import { postsGrid } from './postsGrid'
+import { customerGrid } from './customerGrid'
 
 export const schemaTypes = [
   post,
@@ -26,5 +31,16 @@ export const schemaTypes = [
   socialMediaLink,
   contactDetails,
   kunde,
-  bilXtra
+  bilXtra,
+  gridItem,
+  gridLayout,
+  gallery,
+  video,
+  textWithImage,
+  landingPageHero,
+  form,
+  ContentPage,
+  homepage,
+  postsGrid,
+  customerGrid
 ]
