@@ -10,7 +10,7 @@
 
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-4 mx-4">
     {#each content.selectedPosts as item}
-        <div class=" bg-white rounded shadow-lg">
+        <div class=" bg-white ">
             <div class="aspect-w-1 aspect-h-1 w-full">
                 <img class="object-cover" src={urlFor(item.mainImage).url()} alt="Post image">
             </div>
