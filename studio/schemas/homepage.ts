@@ -77,6 +77,12 @@ export const homepage = defineType({
             type: "reference",
             to: [{ type: 'post' }], // Reference to an existing 'post'
           }),
+        defineArrayMember({
+            name: "brands",
+            title: "Brands",
+            type: "reference",
+            to: [{ type: 'supplierBrands' }], // Reference to an existing 'customer'
+          }),
       ],
     }),
   ],

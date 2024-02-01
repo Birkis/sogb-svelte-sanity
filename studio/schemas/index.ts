@@ -2,7 +2,6 @@ import blockContent from './blockContent'
 import post from './post'
 import banner from './banner'
 import profile from './profile'
-import supplierBrand from './supplierBrand'
 import page from './page'
 import hero from './hero'
 import imageGallery from './imageGallery'
@@ -11,6 +10,8 @@ import socialMediaLink from './socialMediaLink'
 import contactDetails from './contactDetails'
 import kunde from './kunde'
 import bilXtra from './bilXtra'
+import {brand} from './brand'
+import {supplierBrands} from './supplierBrand'
 import { gridItem, gridLayout } from './itemGrid'
 import { ContentPage } from './landingPage/landingPage'
 import { gallery, video, textWithImage, landingPageHero, form } from './landingPage/landingPageComponents'
@@ -23,7 +24,7 @@ export const schemaTypes = [
   blockContent,
   banner,
   profile,
-  supplierBrand,
+  supplierBrands,
   page,
   hero,
   imageGallery,
@@ -42,5 +43,6 @@ export const schemaTypes = [
   ContentPage,
   homepage,
   postsGrid,
-  customerGrid
+  customerGrid,
+  brand
 ]

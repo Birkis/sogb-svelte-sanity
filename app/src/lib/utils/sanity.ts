@@ -36,20 +36,31 @@ export async function getHomePage(): Promise<Homepage> {
 		"pageBuilderContent": pageBuilder[] {
 		  _key,
 		  _type,
-		  _type == "salesTeamBlock" => {
-            ...
+		  // Resolve references for 'postsGrid'
+          _type == "brands" => {
+            "brands": @-> {
+              title,
+              "selectedBrands": selectedBrands[]-> {
+                brandLogo,
+                brandName,
+                brandUrl,
+                productType
+              }
+            }
           },
-		  _type == "banner" => {
+          _type == "banner" => {
             "banner": @-> {
               ...
             }
           },
-		  _type == "hero" => {
-				"hero": @-> {
-				...
-				}
-			},
-		  // Resolve references for 'postsGrid'
+          _type == "salesTeamBlock" => {
+            ...
+          },
+          _type == "hero" => {
+              "hero": @-> {
+                ...
+              }
+          },
 		  _type == "postsGrid" => {
 			"selectedPosts": selectedPosts[]-> {
 			  _id,
@@ -165,6 +176,15 @@ export async function getBilXtraIfo(): Promise<BilXtra> {
 		throw error;
 	}
 
+}
+
+export async function getBrands(): Promise<Customer[]> {
+	try {
+		return await client.fetch(groq`*[_type == "supplier"]`);
+	} catch (error) {
+		console.error('Error fetching brands:', error);
+		throw error;
+	}
 }
 
 export interface Post {
@@ -290,10 +310,13 @@ export interface SalesTeamBlock {
 	bottomText: string;
   }
 
-interface Customer {
+export interface Customer {
 // Define the structure for 'customer' type here
 	id: string;
-	name: string;
+	brandName: string;
+	brandLogo: ImageAsset;
+	brandUrl: URL;
+
 }
 
 interface SocialMediaLink {
@@ -425,6 +448,13 @@ _type: 'postsGrid';
 
 interface CustomerGrid {
 _type: 'customerGrid';
+}
+
+export interface Brand {
+	brandLogo: ImageAsset;
+	brandName: string;
+	brandUrl: string;
+	productType: string;
 }
 
 

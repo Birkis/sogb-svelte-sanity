@@ -6,17 +6,13 @@
     import ExistingPost from '../components/ExistingPost.svelte';
 	import Hero from '../components/Hero.svelte';
 	import Banner from '../components/Banner.svelte';
+	import BrandGrid from '../components/BrandGrid.svelte';
 
     export let data: PageData;
     
     // Ensure homepage is defined and has at least one element
     const content : any = data.props.homepage[0] ?? [];
 
-    if (content) {
-        console.log("The Homepage object is:", content.pageBuilderContent);
-    } else {
-        console.error("Homepage content is not available.");
-    }
 
     const componentMap: any = {
         postsGrid: PostGrid,
@@ -24,7 +20,9 @@
         salesPeople: HighlightedPeople,
         customerGrid: CustomerGrid,
 		hero: Hero,
-		banner: Banner
+		banner: Banner,
+        brands: BrandGrid
+
     }
 </script>
 
