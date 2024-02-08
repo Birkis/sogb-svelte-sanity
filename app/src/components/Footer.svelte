@@ -19,7 +19,7 @@
           </ul>
         </div>
         <div class="w-full md:w-1/3 px-4 my-16">
-          <h5 class="text-sm font-regular text-red-500/75 mb-2">Ordrekontor</h5>
+          <h5 class="text-sm font-regular text-red-500/75 mb-2">Kundesenter</h5>
           <ul>
             {#each Object.entries(contactInfo.contactOrders) as [key, value]}
               <li class="mb-4 text-gray-400 text-xs">{` ${value}`}</li>

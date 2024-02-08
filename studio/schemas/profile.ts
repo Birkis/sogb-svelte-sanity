@@ -72,8 +72,8 @@ export default {
                 { title: 'HR', value: 'HR' },
                 { title: 'Økonomi', value: 'Økonomi' },
                 { title: 'IT', value: 'IT' },
-                { title: 'Lager', value: 'Lager' },
-                { title: 'Kundeservice', value: 'Kundeservice' },
+                { title: 'Logistikk', value: 'Logistikk' },
+                { title: 'Kundesenter', value: 'Kundesenter' },
    
             ],
         },

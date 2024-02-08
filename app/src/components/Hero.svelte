@@ -7,7 +7,7 @@
 
 
 <div class="bg-slate-950 w-full relative">
-	<img src={urlFor(content.hero.backgroundImage).width(1600).quality(30).url()} alt="Background" class="absolute inset-0 w-full h-full object-cover z--10 opacity-50">	
+	<img src={urlFor(content.hero.backgroundImage).width(1000).quality(30).url()} alt="Background" class="absolute inset-0 w-full h-full object-cover z--10 opacity-50">	
 		<div class="relative isolate px-6 pt-14 lg:px-8">
 			<div
 				class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
@@ -35,7 +35,7 @@
 					<div class="mt-10 flex items-center justify-center gap-x-6">
 						<a
 							href="{content.hero.primaryCta.link}"
-							class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+							class="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
 							>{content.hero.primaryCta.label}</a
 						>
 						<a href="{content.hero.secondaryCta.link}" class="text-sm font-semibold leading-6 text-gray-100"

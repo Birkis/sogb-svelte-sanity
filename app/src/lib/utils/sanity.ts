@@ -138,8 +138,9 @@ export async function getHero(): Promise<Hero> {
 }
 
 export async function getEmployees(): Promise<Employee[]> {
-	return await client.fetch(groq`*[_type == "profile"]`)
-}
+	return await client.fetch(groq`*[_type == "profile" && !(_id match "drafts.*")]`);
+  }
+  
 
 export async function getPageContent(): Promise<Page[]> {
 	try {
