@@ -10,57 +10,45 @@
 
 
 
-<div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">    
-    <h1 class="text-4xl font-bold text-center py-5">Om Sørensen og Balchen</h1>
-    <p class="text-md text-justify">
-        AS Sørensen og Balchen eier og driver konseptene BilXtra butikk og BilXtra verksted.
-		Konsernomsetning for 2017 var rett i underkant av 790 millioner kr. 38 butikker er egen eid av
-		AS Sørensen og Balchen og 29 eid av franchiser. Når det gjelder Bilxtra verkstedkonseptet eier
-		SogB 2 verksteder mens ca. 260 verksteder er eid av lokale drivere.
-    </p>
+<div class="max-w-[900px] mx-auto px-4 sm:px-6 lg:px-8">
+    <h1 class="text-4xl font-bold text-center py-5">BilXtra Butikk og Verksted</h1>
 
-    <div class="mt-10">
-        <h2 class="text-3xl font-bold">Sogb eier to kjedekonsept:</h2>
-        <h3 class="text-2xl font-semibold mt-5">BilXtra butikk</h3>
-        <p class="text-md text-justify">Butikkjeden har ca 70 medlemmer rundt om i hele landet. Halvparten er eid av Sogb.</p>
-
-        <h3 class="text-2xl font-semibold mt-5">BilXtra verksted</h3>
-        <p class="text-md text-justify">
-          
-                I dag har vi 235 medlemmer i BilXtra verkstedkjeden. Alle disse er franchiser. De siste årene
-                har antall medlemmer økt betydelig. Dette har skjedd i parallell med at vi har utviklet
-                konseptet og økt kjennskapen. Sogb skal kjennetegnes av:
-         
     
-          
-                Original-kvalitet på alle deler vi selger Evne til å levere riktig, og ha de produkter våre
-                kunder etterspør Høyt kompetansenivå Sterke og godt kjente konsepter Være ledende i utviklingen
-                av bransjen I 2011 ble Sogb kjøpt opp av Mekonomen AB. Med dette har vi fått inn en solid
-                industriell eier med betydelig bransjekompetanse. SogB og BilXtra skal bestå som selvstendig
-                selskap. Så lenge bilene går vil det være behov for våre butikker og verksteder, og vi mener at
-                SogB og BilXtra er godt forberedte på å møte fremtiden. Hver dag jobber vi for at våre kunder
-                skal ha gode opplevelser i våre virksomheter, og få den hjelpen de fortjener.
-        
-        </p>
-    </div>
-
     <div class="my-6">
-        <h2 class="text-3xl font-bold my-8">Vår historie</h2>
+        <h2 class="text-3xl font-bold my-4">BilXtra Butikk</h2>
         <p class="text-md text-justify">
-            AS Sørensen og Balchen er et bilfirma med en av de lengste historiene i Norge. Bedriften ble
-                etablert som en handelsvirksomhet i 1904 og en bilimportør i 1907. Selskapet har vært en ledende
-                distributør av slitedeler og tilbehør i flere tiår, og i dag representerer det mange av de mest
-                respekterte produsentene i verden. AS Sørensen og Balchen leverer tilbehør til selskaper,
-                grossister og reparasjonsverksteder. Selskapet deltar i et omfattende arbeidsforhold sentrert
-                rundt integrerte bransjeløsninger for logistikk og verkstedsystemer for å sikre en effektiv
-                vareflyt – og dermed gi kundene størst mulig konkurranseevne. I de senere årene har AS Sørensen
-                og Balchen utvidet sitt distribusjonsnettverk i rask takt. Gjennom oppkjøp og etablering av
-                tilbehørsbutikker og distriktsgrossister, har konsernet styrket sin posisjon som den ledende
-                distributøren i Norge til tilbehørs- og verkstedsektoren.
+            Med våre 70 butikker som strekker seg fra Lakselv i Nord til Lyngdal i Sør,
+            er BilXtra Norges største faghandelkjede på tilbehør og utstyr til bil.
+            Hos en BilXtra butikk finner du alt det du trenger av f.eks. bilpleie, 
+            lasteutstyr, lyspærer, vindusviskere, barneseter og barneutstyr, og 
+            underholdning som bilradio, dashcam osv. BilXtra har også blitt en av 
+            Norges største tilbydere av ekstralys, hvor vi har et stort utvalg som 
+            både kan sees i våre butikker og på bilxtra.no.
+        </p>
+        <p class="text-md text-justify mt-4">
+            Våre ansatte går gjennom jevnlige treningsprogrammer og innehar høy kompetanse. 
+            Vi står klare til å hjelpe deg mandag til lørdag hver uke!
         </p>
     </div>
-
-
-
+    
+    <div class="my-6">
+        <h2 class="text-3xl font-bold my-4">BilXtra Verksted</h2>
+        <p class="text-md text-justify">
+            Med 272 BilXtra verksteder rundt om i hele landet er
+            vi Norges tredje største verkstedkjede. Over 100 av disse
+            er elbilgodkjente etter vårt strenge program for å kunne utføre 
+            arbeid på elbiler. Du får jobben gjort på en faglig god måte, 
+            vi har et av de beste konseptene med veihjelp, digitalt 
+            servicehefte og andre ting som gjør at du som kunde skal 
+            føle trygghet ved å velge BilXtra Verksted. Tar du service 
+            på bilen din hos oss opprettholder du selvsagt all garanti 
+            på bilen din. Det er dette vi kaller for fritt verkstedvalg!
+        </p>
+    </div>
+    <img class=" w-[300px] mx-auto py-8" src="/bilXtra_logo.png" alt="">
 </div>
+
+
+
+
 
