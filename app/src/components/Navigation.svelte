@@ -1,19 +1,5 @@
 <script lang="ts">
- import { onMount } from 'svelte';
 
-let isMenuOpen = false;
-
-// I need to write a function that will close the menu when the user clicks outside of it
-
-function toggleMenu() {
-  isMenuOpen = !isMenuOpen;
-
-  if (isMenuOpen) {
-    document.body.classList.add('overflow-hidden');
-  } else {
-    document.body.classList.remove('overflow-hidden');
-  }
-}
 
 
 

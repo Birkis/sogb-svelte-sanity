@@ -14,6 +14,12 @@ export default {
         type: 'string'
       },
       {
+        name: 'link',
+        title: 'Link',
+        type: 'reference',
+        to: [{ type: 'post' }]
+      },
+      {
         name: 'salesPeople',
         title: 'Sales People',
         type: 'array',
@@ -41,6 +47,12 @@ export default {
                 name: 'description',
                 title: 'Description',
                 type: 'string'
+              },
+              {
+                name: 'link',
+                title: 'Link',
+                type: 'reference',
+                to: [{ type: 'post' }]
               }
             ],
             preview: {

@@ -7,7 +7,7 @@
     { name: 'Om oss', href: '/about' },
     // { name: 'HMS', href: '/hms' },
     { name: 'Ansatte', href: '/people'},
-    { name: 'Kontakt', href: '/contact' },
+    // { name: 'Kontakt', href: '/contact' },
     {name: 'BilXtra', href: '/bilxtra'}
   ];
 
