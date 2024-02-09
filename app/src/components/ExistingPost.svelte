@@ -13,7 +13,7 @@
 
 <div class="p-4 bg-gray-700   flex flex-col sm:flex-row">
     <div class="aspect-w-1 aspect-h-1 w-full sm:w-1/2">
-        <img class="object-cover" src={urlFor(post.mainImage).url()} alt="Post image">
+        <img class="object-cover" src={urlFor(post.mainImage).width(850).quality(60).url()} alt="Post image">
     </div>    
     <div class="p-6 w-full my-auto mx-auto md:w-1/3">
         <h2 class="text-2xl text-white font-bold mb-2">{post.title}</h2>

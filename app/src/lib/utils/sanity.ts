@@ -96,19 +96,17 @@ export async function getHomePage(): Promise<Homepage> {
 		  // Resolve 'salesPeople' reference
 		  _type == "salesPeople" => {
 			"salesPeopleBlock": @->{
-			  mainTitle,
-			  subTitle,
-			  "salesPeople": salesPeople[]{
-				_key,
-				description,
-				"image": image.asset->{
-				  _id,
-				  url,
-				  alt
+				...,
+				link -> {
+				  slug    
+				},
+				"salesPeople": salesPeople[]{
+				  ...,
+				  "link": link-> {
+					slug
+				  }
 				}
-			  },
-			  bottomText
-			}
+			  }  
 		  }
 		  // Other types can be added here
 		}
@@ -139,7 +137,7 @@ export async function getHero(): Promise<Hero> {
 
 export async function getEmployees(): Promise<Employee[]> {
 	return await client.fetch(groq`*[_type == "profile" && !(_id match "drafts.*")]`);
-  }
+}
   
 
 export async function getPageContent(): Promise<Page[]> {
@@ -153,7 +151,19 @@ export async function getPageContent(): Promise<Page[]> {
 
 export async function getSalesTeam(): Promise<SalesTeamBlock> {
 	try {
-		return await client.fetch(groq`*[_type == "salesTeamBlock"][0]`);
+		return await client.fetch(groq`*[_type == "salesTeamBlock"] {
+			...,
+			link -> {
+			  slug    
+			},
+			"salesPeople": salesPeople[]{
+			  ...,
+			  "link": link-> {
+				slug
+			  }
+			}
+		  }
+		  `);
 	} catch (error) {
 		console.error('Error fetching sales team:', error);
 		throw error;
@@ -392,6 +402,12 @@ markDefs?: {
 	_type: string;
 	href?: string;
 }[];
+}
+
+export interface ExistingPost {
+	mainIamge: ImageAsset;
+	title: string;
+	excerpt: string;
 }
 
 interface Homepage {
