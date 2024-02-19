@@ -1,13 +1,17 @@
 import type { PageLoad } from './$types';
-import type { BilXtra } from '$lib/utils/sanity';
-import { getBilXtraIfo } from '$lib/utils/sanity';
+import { error } from '@sveltejs/kit';
+import { getPostPage } from '$lib/utils/sanity';
 
 
-export const load = (async () => {
 
-        let data = await getBilXtraIfo();
+export const load: PageLoad = async () => {
 
-        return data
+    const page = await getPostPage('bilxtra');
+    if (page) {
+        return {
+            page
+        };
+    }
 
-
-}) satisfies PageLoad;
+    throw error(404, 'Not found');
+}

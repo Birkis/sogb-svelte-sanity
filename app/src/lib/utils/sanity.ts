@@ -29,6 +29,11 @@ export async function getPost(slug: string): Promise<Post> {
 	});
 }
 
+export async function getPostPage(page: string): Promise<Post> {
+	return await client.fetch(groq`*[_type == "post" && slug.current == $page][0]`, {page});
+}
+
+
 export async function getHomePage(): Promise<Homepage> {
 
 	let query = groq`*[_type == "homepage"] {
@@ -207,6 +212,7 @@ export interface Post {
 	mainImage?: ImageAsset;
 	body: PortableTextBlock[];
 }
+
 
 export interface Banner {
 	_type: 'banner';
