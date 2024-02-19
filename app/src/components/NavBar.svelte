@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import { page } from '$app/stores';
+  import { onMount, onDestroy } from 'svelte';
 
   // Define your navigation links
   const navLinks = [
@@ -11,12 +12,32 @@
     {name: 'BilXtra', href: '/bilxtra'}
   ];
 
+
   /**
 	 * @type {string | null}
 	 */
-  let currentPage;
-  $: currentPage = $page.route.id; // Reactive statement
-  let isOpen = false;
+  let currentPage : any;
+  let isOpen : Boolean;
+  $: {
+    currentPage = $page.route.id;
+    isOpen = false;
+  }
+
+  let menuElement : any;
+
+  onMount(() => {
+    const handleClickOutside = (event : any) => {
+      if (menuElement && !menuElement.contains(event.target)) {
+        isOpen = false;
+      }
+    };
+
+    window.addEventListener('click', handleClickOutside);
+
+    return () => {
+      window.removeEventListener('click', handleClickOutside);
+    };
+  });
 
 </script>
 
@@ -28,7 +49,7 @@
         <div class="-ml-2 mr-2 flex items-center md:hidden">
           
           <!-- Mobile menu button -->
-          <button type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" on:click={() => isOpen = !isOpen}>
+          <button bind:this={menuElement} type="button" class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false" on:click={() => isOpen = !isOpen}>
             <span class="absolute -inset-0.5"></span>
             <span class="sr-only">Open main menu</span>
             <!--
@@ -67,36 +88,16 @@
           {/each}
         </div>
       </div>
-      <div class="flex items-center">
-
-        <div class="hidden md:ml-4 md:flex md:flex-shrink-0 md:items-center">
- 
-
-          <!-- Profile dropdown -->
-          <div class="relative ml-3">
-            <!--
-              Dropdown menu, show/hide based on menu state.
-
-              Entering: "transition ease-out duration-200"
-                From: "transform opacity-0 scale-95"
-                To: "transform opacity-100 scale-100"
-              Leaving: "transition ease-in duration-75"
-                From: "transform opacity-100 scale-100"
-                To: "transform opacity-0 scale-95"
-            -->
-
-          </div>
-        </div>
-      </div>
     </div>
   </div>
 
   <!-- Mobile menu, show/hide based on menu state. -->
   {#if isOpen}
-  <div class="md:hidden" id="mobile-menu">
+  <div class="md:hidden" id="mobile-menu"  >
     <div class="space-y-1 px-2 pb-3 pt-2 sm:px-3">
       {#each navLinks as link}
         <a 
+         
           href={link.href} 
           class="{currentPage === link.href ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white'} block rounded-md px-3 py-2 text-base font-medium"
         >

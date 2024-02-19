@@ -15,9 +15,6 @@
 
 	$: imagePosition = `object-fit: cover; object-position: ${x}% ${y}%;`;
 
-	console.log(x,y);
-
-
 	
 </script>
 

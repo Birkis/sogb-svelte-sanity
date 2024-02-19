@@ -3,6 +3,7 @@
 
     export let content: any;
 
+
     let debug = false;
 
 </script>
@@ -16,7 +17,7 @@
     {#each content.selectedPosts as item}
         <div class=" bg-white ">
             <div class="aspect-w-1 aspect-h-1 w-full">
-                <img class="object-cover" src={urlFor(item.mainImage).url()} alt="Post image">
+                <img class="object-cover h-[300px]" src={urlFor(item.mainImage).url()} alt="Post image">
             </div>
             <div class="p-6">
                 <h2 class="text-2xl font-bold mb-2">{item.title}</h2>
