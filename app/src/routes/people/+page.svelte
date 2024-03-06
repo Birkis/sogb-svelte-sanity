@@ -33,8 +33,6 @@
         selectedDepartment = department;
     }
 
-	$: console.log(searchQuery, filteredEmployees);
-
 </script>
 
 

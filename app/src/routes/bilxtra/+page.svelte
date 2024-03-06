@@ -35,7 +35,7 @@
 <section class="">
 	{#if post.mainImage}
 		<img
-			class=" w-full object-scale-down py-4 "
+			class=" w-8/12 md:w-4/12 mx-auto object-scale-down py-4 "
 			src={urlFor(post.mainImage).width(800).url()}
 			alt={`Cover image for ${post.title}`}
 			style={imagePosition}
@@ -43,7 +43,7 @@
 	{:else}
 		<div class=" " />
 	{/if}
-	<div class="mx-auto max-w-[80%] md:w-[480px] py-24">
+	<div class="mx-auto max-w-[80%] md:w-[480px] py-4 md:py-24">
 		<h1 class="text-4xl font-bold">{post.title}</h1>
 		<p class="text-sm text-gray-500 pb-4 pt-1">
 			{formatDate(post._createdAt)}

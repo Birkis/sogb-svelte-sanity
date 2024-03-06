@@ -5,7 +5,6 @@
 
     export let content: Customer[];
 
-    console.log("The content object is:", content);
 </script>
 
 

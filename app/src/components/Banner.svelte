@@ -15,7 +15,6 @@
     // Now you can safely use hotspot.x and hotspot.y, but ensure they are checked for null/undefined before use
     let x : number, y : number; 
 	$: if (hotspot) {
-        console.log(`Hotspot X: ${hotspot.x}, Hotspot Y: ${hotspot.y}`);
         // Further operations involving hotspot.x and hotspot.y
 		x = hotspot.x * 100;
 		y = hotspot.y * 100;
@@ -34,11 +33,11 @@
 
 
 <div
-	class="banner bg-cover bg-center h-[500px] flex items-center justify-center"
+	class="opacity-80 banner bg-cover bg-center h-[500px] flex items-center justify-center"
 	style="{objectPositionStyle} background-image: url({urlFor(banner.mainImage).url()})"
 >
-	<div class=" text-white p-5 w-10/12 md:w-6/12 mx-auto">
-		<h2 class="text-4xl font-bold mb-4">{banner.bannerTitle}</h2>
+	<div class=" text-white p-5 w-10/12 md:w-6/12 mx-auto bg-black opacity-90">
+		<h2 class="text-4xl font-bold mb-4 ">{banner.bannerTitle}</h2>
 		<div class="mb-8">
 			{#if banner.bannerBody}
 				{#each banner.bannerBody as block}

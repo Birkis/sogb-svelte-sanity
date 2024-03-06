@@ -7,7 +7,6 @@
 
     let images : ImageAsset[] = galleryData.images;
 
-    console.log("Gallery - Component:", images);
 
   </script>
   

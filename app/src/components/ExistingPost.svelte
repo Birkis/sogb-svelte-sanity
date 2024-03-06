@@ -3,7 +3,6 @@
     import { urlFor } from '$lib/utils/image';
 
     export let content: any;
-    console.log("The content object is: ", content);
 
     let post : Post = content.existingPostContent; 
 
