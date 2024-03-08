@@ -14,9 +14,9 @@
 				aria-hidden="true"
 			/>
 			<div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
-				<div class="hidden sm:mb-8 sm:flex sm:justify-center">
+				<div class=" max-w-xs mx-auto my-2 sm:mb-8 sm:flex sm:justify-center">
 					<div
-						class="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-100 ring-1 ring-gray-100/70 hover:ring-gray-900/20"
+						class=" text-center md:text-left relative rounded-full px-3 py-1 text-sm leading-6 text-gray-100 ring-1 ring-gray-100/70 hover:ring-gray-900/20"
 					>
 						Finn sikkerhetsdatablad. 
 							<a href="https://app.ecoonline.com/public/search-configuration/search?companyID=1002502&prodType=er&descrLang=1" class="font-bold text-white"
