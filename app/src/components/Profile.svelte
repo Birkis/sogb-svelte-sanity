@@ -13,6 +13,7 @@
       <p class="mt-1 text-base leading-7 text-gray-300 font-semibold">{employee.department}</p>
       <p class="mt-1 text-base leading-7 text-gray-300 font-light">{employee.position}</p>
       <div class="mt-0">
+          <a href="tel:{employee.phone}" class="text-white text-base font-light ">Tlf: {employee.phone}</a>
           <a href="mailto:{employee.email}" class="text-blue-500 hover:text-blue-700 text-base underline">{employee.email}</a>
       </div>
   </div>
