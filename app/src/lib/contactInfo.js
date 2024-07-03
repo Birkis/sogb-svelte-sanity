@@ -25,5 +25,9 @@ export const contactInfo = {
         faqLink: "Link til FAQ her",
         teamInfo: "Informasjon om teamet her",
         feedbackFormLink: "Link til tilbakemeldingsskjema her"
+    },
+    Aapenhetsloven:{
+        Aapenhetsloven: "Åpenhetsloven",
+        AapenhetslovenLink: "/static/aapenhetsloven.pdf"
     }
 };
