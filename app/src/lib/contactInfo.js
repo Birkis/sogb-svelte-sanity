@@ -28,6 +28,6 @@ export const contactInfo = {
     },
     Aapenhetsloven:{
         Aapenhetsloven: "Åpenhetsloven",
-        AapenhetslovenLink: "/static/aapenhetsloven.pdf"
+        AapenhetslovenLink: "/Aapenhetsloven.pdf"
     }
 };
