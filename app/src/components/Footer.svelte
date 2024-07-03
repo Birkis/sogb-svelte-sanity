@@ -16,6 +16,12 @@
             {#each Object.entries(contactInfo.contactOffice) as [key, value]}
               <li class="mb-2 text-gray-400 text-xs">{`${key} : ${value}`}</li>
             {/each}
+
+            <li><a href={contactInfo.Aapenhetsloven.AapenhetslovenLink}>{contactInfo.Aapenhetsloven.Aapenhetsloven}</a></li>
+<li>
+  
+              <a href={contactInfo.Aapenhetsloven.AapenhetslovenLink} download>Last ned</a>
+</li>
           </ul>
         </div>
         <div class="w-full md:w-1/3 px-4 my-16">
