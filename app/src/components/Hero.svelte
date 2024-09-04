@@ -26,9 +26,9 @@
 					<div
 					class=" text-center md:text-left relative rounded-full px-3 my-2 py-1 text-sm leading-6 text-gray-100 ring-1 ring-gray-100/70 hover:ring-gray-900/20"
 					>
-					Last ned returskjema. 
-						<a href="https://sorensenogbalchen.sharepoint.com/:b:/s/Hovedkontor/EcjcEni6O0dNsdLh615LvWMBazjxpSKs3D05tl_Lr9heAA?e=LutkhG" class="font-bold text-white"
-						><span class="absolute inset-0" aria-hidden="true" />Les mer
+					Reklamasjon. 
+						<a href="/skjema" class="font-bold text-white"
+						><span class="absolute inset-0" aria-hidden="true" />Finn skjema
 						<span aria-hidden="true">&rarr;</span></a
 					>
 				</div>

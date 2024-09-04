@@ -18,6 +18,7 @@ import { gallery, video, textWithImage, landingPageHero, form } from './landingP
 import {homepage} from './homepage'
 import { postsGrid } from './postsGrid'
 import { customerGrid } from './customerGrid'
+import forms from './forms'
 
 export const schemaTypes = [
   post,
@@ -44,5 +45,6 @@ export const schemaTypes = [
   homepage,
   postsGrid,
   customerGrid,
-  brand
+  brand,
+  forms
 ]

@@ -203,6 +203,35 @@ export async function getBrands(): Promise<Customer[]> {
 	}
 }
 
+
+export async function getForms(): Promise<Forms[]> {
+	try {
+	  // Fetch the required fields to match the Forms interface
+	  return await client.fetch(groq`
+		*[_type == "forms"]{
+        _type,
+        _createdAt,
+        _id,
+        _rev,
+        _updatedAt,
+        title,
+        description,
+        file {
+          _type,
+          "asset": asset->{
+            _id,
+            url,
+            _type
+          }
+        }
+      }`);
+	} catch (error) {
+	  console.error('Error fetching forms:', error);
+	  throw error;
+	}
+  }
+
+
 export interface Post {
 	_type: 'post';
 	_createdAt: string;
@@ -447,6 +476,7 @@ _type: 'gallery';
 
 interface Form {
 _type: 'form';
+
 }
 
 interface Video {
@@ -481,3 +511,22 @@ export interface Brand {
 }
 
 
+
+export interface Forms {
+	_type: 'forms';
+	_createdAt: string;
+	_id: string;
+	_rev: string;
+	_updatedAt: string;
+	title: string;
+	description: string;
+	file: {
+	  _type: 'file';
+	  asset: {
+		_id: string;
+		url: string;
+		_type: string;
+	  };
+	};
+  }
+  
