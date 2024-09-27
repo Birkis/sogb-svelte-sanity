@@ -24,7 +24,9 @@ export default defineType({
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      rows: 4,
+      options: {
+        rows: 4,
+      },
     }),
     defineField({
       name: 'mainImage',
@@ -38,6 +40,14 @@ export default defineType({
       name: 'body',
       title: 'Body',
       type: 'blockContent',
+    }),
+    defineField({
+      name: 'pdfFile',
+      title: 'PDF File',
+      type: 'file',
+      options: {
+        accept: 'application/pdf'
+      },
     }),
   ],
   preview: {

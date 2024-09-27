@@ -238,10 +238,22 @@ export interface Post {
 	title?: string;
 	slug: Slug;
 	excerpt?: string;
-	mainImage?: ImageAsset;
+	mainImage?: {
+		asset: ImageAsset;
+		hotspot?: {
+			x: number;
+			y: number;
+			height: number;
+			width: number;
+		};
+	};
 	body: PortableTextBlock[];
+	pdfFile?: {
+		asset: {
+			url: string;
+		};
+	};
 }
-
 
 export interface Banner {
 	_type: 'banner';
