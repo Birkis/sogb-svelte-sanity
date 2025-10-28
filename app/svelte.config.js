@@ -10,7 +10,8 @@ const config = {
 	kit: {
 		// Using adapter-vercel for optimized Vercel deployment with Node.js 22 support
 		adapter: adapter({
-			runtime: 'nodejs22.x'
+			runtime: 'nodejs22.x',
+			external: ['@sveltejs/kit']
 		})
 	}
 };
