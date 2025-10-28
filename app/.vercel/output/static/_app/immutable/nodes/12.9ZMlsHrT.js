@@ -1,0 +1,1 @@
+import{f as p,a as t}from"../chunks/BniCQta6.js";import"../chunks/fLdaqtOV.js";import{p as m}from"../chunks/CrqJEF-O.js";var i=p("<h1>Subsidiaries</h1>");function n(o,a){m(a,"data",8);var r=i();t(o,r)}export{n as component};

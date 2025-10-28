@@ -1,0 +1,1 @@
+import{f as r,a as m}from"../chunks/BniCQta6.js";import"../chunks/fLdaqtOV.js";import{p as t}from"../chunks/CrqJEF-O.js";var n=r("<h1>Reklamasjon</h1>");function h(o,a){t(a,"data",8);var p=n();m(o,p)}export{h as component};

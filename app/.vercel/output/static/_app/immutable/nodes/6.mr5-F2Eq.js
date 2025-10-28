@@ -1,0 +1,1 @@
+import{f as a,a as t}from"../chunks/BniCQta6.js";import"../chunks/fLdaqtOV.js";import{p as e}from"../chunks/CrqJEF-O.js";var m=a("<div><h1>HMS</h1> <p>Dette er en side om HMS</p></div>");function f(o,p){e(p,"data",8);var r=m();t(o,r)}export{f as component};

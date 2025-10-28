@@ -1,0 +1,63 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "/_app/immutable/.+",
+			"headers": {
+				"cache-control": "public, immutable, max-age=31536000"
+			}
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^/?(?:/__data.json)?$",
+			"dest": "/"
+		},
+		{
+			"src": "^/about/?(?:/__data.json)?$",
+			"dest": "/about"
+		},
+		{
+			"src": "^/bilxtra/?(?:/__data.json)?$",
+			"dest": "/bilxtra"
+		},
+		{
+			"src": "^/contact/?(?:/__data.json)?$",
+			"dest": "/contact"
+		},
+		{
+			"src": "^/hms/?(?:/__data.json)?$",
+			"dest": "/hms"
+		},
+		{
+			"src": "^/investors/?(?:/__data.json)?$",
+			"dest": "/investors"
+		},
+		{
+			"src": "^/people/?(?:/__data.json)?$",
+			"dest": "/people"
+		},
+		{
+			"src": "^/post/([^/]+?)/?(?:/__data.json)?$",
+			"dest": "/post/[slug]"
+		},
+		{
+			"src": "^/reklamasjon/?(?:/__data.json)?$",
+			"dest": "/reklamasjon"
+		},
+		{
+			"src": "^/skjema/?(?:/__data.json)?$",
+			"dest": "/skjema"
+		},
+		{
+			"src": "^/subsidiaries/?(?:/__data.json)?$",
+			"dest": "/subsidiaries"
+		},
+		{
+			"src": "/.*",
+			"dest": "/![-]/catchall"
+		}
+	],
+	"overrides": {}
+}
