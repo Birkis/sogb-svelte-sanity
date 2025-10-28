@@ -15,6 +15,7 @@
 		"@crystallize/js-api-client": "^1.12.2",
 		"@sanity/client": "^6.0.0",
 		"@sanity/image-url": "^1.0.2",
+		"@sveltejs/kit": "^2.0.0",
 		"groq": "^3.8.1",
 		"svelte-routing": "^2.4.0"
 	},
@@ -23,7 +24,6 @@
 		"@portabletext/types": "^2.0.2",
 		"@sanity/types": "^3.7.1",
 		"@sveltejs/adapter-vercel": "^5.0.0",
-		"@sveltejs/kit": "^2.0.0",
 		"@typescript-eslint/eslint-plugin": "^5.45.0",
 		"@typescript-eslint/parser": "^5.45.0",
 		"autoprefixer": "^10.4.15",
