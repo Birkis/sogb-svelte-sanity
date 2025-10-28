@@ -8,10 +8,9 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
-		// Using adapter-vercel for optimized Vercel deployment with Node.js 22 support
+		// Using adapter-vercel with Edge runtime for optimal ESM support and performance
 		adapter: adapter({
-			runtime: 'nodejs22.x',
-			external: ['@sveltejs/kit']
+			runtime: 'edge'
 		})
 	}
 };
