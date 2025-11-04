@@ -7,9 +7,11 @@ export const load: PageLoad = async () => {
 	// henter alle de objektene jeg trenger via getBlabla metoden
     const [posts, banner, hero, salesTeam, homepage] = await Promise.all([getPosts(), getBanner(), getHero(), getSalesTeam(), getHomePage()]);
 
-    ['posts', 'banner', 'hero','salesTeam'].forEach(item => {
-      if (!eval(item)) {
-        throw error(404, `${item.charAt(0).toUpperCase() + item.slice(1)} not found`);
+    // Check if required data exists (avoiding eval for Edge runtime compatibility)
+    const dataToCheck = { posts, banner, hero, salesTeam };
+    Object.entries(dataToCheck).forEach(([name, value]) => {
+      if (!value) {
+        throw error(404, `${name.charAt(0).toUpperCase() + name.slice(1)} not found`);
       }
     });
 
