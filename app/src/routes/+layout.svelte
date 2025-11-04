@@ -1,4 +1,5 @@
 <script>
+	import '../app.css';
 	
 	// @ts-ignore
 	import NavBar from "../components/NavBar.svelte";
@@ -16,7 +17,3 @@
 
     <Footer />
 </div>
-
-<style>
-    @import '../app.css';
-</style>
