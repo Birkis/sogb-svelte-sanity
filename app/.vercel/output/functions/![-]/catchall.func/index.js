@@ -2906,7 +2906,7 @@ var init_index2 = __esm({
        */
       copy() {
         const copy = new _Renderer(this.global, __privateGet(this, _parent));
-        __privateSet(copy, _out, __privateGet(this, _out).map((item2) => item2 instanceof _Renderer ? item2.copy() : item2));
+        __privateSet(copy, _out, __privateGet(this, _out).map((item) => item instanceof _Renderer ? item.copy() : item));
         copy.promise = this.promise;
         return copy;
       }
@@ -2921,11 +2921,11 @@ var init_index2 = __esm({
           );
         }
         this.local = other.local;
-        __privateSet(this, _out, __privateGet(other, _out).map((item2) => {
-          if (item2 instanceof _Renderer) {
-            item2.subsume(item2);
+        __privateSet(this, _out, __privateGet(other, _out).map((item) => {
+          if (item instanceof _Renderer) {
+            item.subsume(item);
           }
-          return item2;
+          return item;
         }));
         this.promise = other.promise;
         this.type = other.type;
@@ -3061,11 +3061,11 @@ var init_index2 = __esm({
      */
     collect_content_fn = function(content = { head: "", body: "" }) {
       var _a2;
-      for (const item2 of __privateGet(this, _out)) {
-        if (typeof item2 === "string") {
-          content[this.type] += item2;
-        } else if (item2 instanceof _Renderer) {
-          __privateMethod(_a2 = item2, _Renderer_instances, collect_content_fn).call(_a2, content);
+      for (const item of __privateGet(this, _out)) {
+        if (typeof item === "string") {
+          content[this.type] += item;
+        } else if (item instanceof _Renderer) {
+          __privateMethod(_a2 = item, _Renderer_instances, collect_content_fn).call(_a2, content);
         }
       }
       return content;
@@ -3073,11 +3073,11 @@ var init_index2 = __esm({
     collect_content_async_fn = async function(content = { head: "", body: "" }) {
       var _a2;
       await this.promise;
-      for (const item2 of __privateGet(this, _out)) {
-        if (typeof item2 === "string") {
-          content[this.type] += item2;
-        } else if (item2 instanceof _Renderer) {
-          await __privateMethod(_a2 = item2, _Renderer_instances, collect_content_async_fn).call(_a2, content);
+      for (const item of __privateGet(this, _out)) {
+        if (typeof item === "string") {
+          content[this.type] += item;
+        } else if (item instanceof _Renderer) {
+          await __privateMethod(_a2 = item, _Renderer_instances, collect_content_async_fn).call(_a2, content);
         }
       }
       return content;
@@ -3622,9 +3622,9 @@ function Footer($$renderer, $$props) {
   });
 }
 function _layout($$renderer, $$props) {
-  $$renderer.push(`<div class="w-full mx-auto max-w-[1800px] bg-gray-100 svelte-12qhfyh"><nav class="svelte-12qhfyh">`);
+  $$renderer.push(`<div class="w-full mx-auto max-w-[1800px] bg-gray-100"><nav>`);
   NavBar($$renderer);
-  $$renderer.push(`<!----></nav> <main class="svelte-12qhfyh"><!--[-->`);
+  $$renderer.push(`<!----></nav> <main><!--[-->`);
   slot($$renderer, $$props, "default", {});
   $$renderer.push(`<!--]--></main> `);
   Footer($$renderer);
@@ -3680,8 +3680,8 @@ var init__ = __esm({
   ".svelte-kit/output/server/nodes/0.js"() {
     index = 0;
     component = async () => component_cache ?? (component_cache = (await Promise.resolve().then(() => (init_layout_svelte(), layout_svelte_exports))).default);
-    imports = ["_app/immutable/nodes/0.CgIi2TXo.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/CsADvZg0.js", "_app/immutable/chunks/eNzDW-GZ.js", "_app/immutable/chunks/Cjsn179y.js", "_app/immutable/chunks/wL22vLqa.js", "_app/immutable/chunks/fFWynACa.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/CYahJKwF.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Dc7zkNrZ.js"];
-    stylesheets = ["_app/immutable/assets/0.BML4LZ44.css"];
+    imports = ["_app/immutable/nodes/0.CFcHhZOo.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/CsADvZg0.js", "_app/immutable/chunks/eNzDW-GZ.js", "_app/immutable/chunks/Cjsn179y.js", "_app/immutable/chunks/wL22vLqa.js", "_app/immutable/chunks/fFWynACa.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/DSJ-Qw6O.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Dc7zkNrZ.js"];
+    stylesheets = ["_app/immutable/assets/0.tvuv1jxE.css"];
     fonts = [];
   }
 });
@@ -3752,7 +3752,7 @@ var init__2 = __esm({
   ".svelte-kit/output/server/nodes/1.js"() {
     index2 = 1;
     component2 = async () => component_cache2 ?? (component_cache2 = (await Promise.resolve().then(() => (init_error_svelte(), error_svelte_exports))).default);
-    imports2 = ["_app/immutable/nodes/1.C84wyABQ.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/CYahJKwF.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Bl-_U8ph.js"];
+    imports2 = ["_app/immutable/nodes/1.DPycCYvc.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/DSJ-Qw6O.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Bl-_U8ph.js"];
     stylesheets2 = [];
     fonts2 = [];
   }
@@ -4572,9 +4572,9 @@ var init_UnsubscriptionError = __esm({
 });
 
 // node_modules/rxjs/dist/esm5/internal/util/arrRemove.js
-function arrRemove(arr, item2) {
+function arrRemove(arr, item) {
   if (arr) {
-    var index14 = arr.indexOf(item2);
+    var index14 = arr.indexOf(item);
     0 <= index14 && arr.splice(index14, 1);
   }
 }
@@ -8370,7 +8370,7 @@ function extractErrorProps(res) {
   if (body2.error && body2.message)
     return props.message = `${body2.error} - ${body2.message}`, props;
   if (isMutationError(body2) || isActionError(body2)) {
-    const allItems = body2.error.items || [], items = allItems.slice(0, 5).map((item2) => item2.error?.description).filter(Boolean);
+    const allItems = body2.error.items || [], items = allItems.slice(0, 5).map((item) => item.error?.description).filter(Boolean);
     let itemsStr = items.length ? `:
 - ${items.join(`
 - `)}` : "";
@@ -10380,9 +10380,10 @@ var init_page_ts = __esm({
     load = async () => {
       try {
         const [posts, banner, hero, salesTeam, homepage] = await Promise.all([getPosts(), getBanner(), getHero(), getSalesTeam(), getHomePage()]);
-        ["posts", "banner", "hero", "salesTeam"].forEach((item) => {
-          if (!eval(item)) {
-            throw error(404, `${item.charAt(0).toUpperCase() + item.slice(1)} not found`);
+        const dataToCheck = { posts, banner, hero, salesTeam };
+        Object.entries(dataToCheck).forEach(([name, value]) => {
+          if (!value) {
+            throw error(404, `${name.charAt(0).toUpperCase() + name.slice(1)} not found`);
           }
         });
         return {
@@ -11018,8 +11019,8 @@ function CustomerGrid($$renderer, $$props) {
     $$renderer2.push(`<!--[-->`);
     const each_array = ensure_array_like(content);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-      let item2 = each_array[$$index];
-      $$renderer2.push(`<p>${escape_html(item2.brandName)}</p> <img${attr("src", urlFor(item2.brandLogo).url())}${attr("alt", item2.brandName)}/>`);
+      let item = each_array[$$index];
+      $$renderer2.push(`<p>${escape_html(item.brandName)}</p> <img${attr("src", urlFor(item.brandLogo).url())}${attr("alt", item.brandName)}/>`);
     }
     $$renderer2.push(`<!--]-->`);
     bind_props($$props, { content });
@@ -11034,8 +11035,8 @@ function PostGrid($$renderer, $$props) {
     $$renderer2.push(`<!--]--> <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-4 mx-4"><!--[-->`);
     const each_array = ensure_array_like(content.selectedPosts);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-      let item2 = each_array[$$index];
-      $$renderer2.push(`<div class="bg-white"><div class="aspect-w-1 aspect-h-1 w-full"><img class="object-cover h-[300px] w-full"${attr("src", urlFor(item2.mainImage).url())} alt="Post image"/></div> <div class="p-6"><h2 class="text-2xl font-bold mb-2">${escape_html(item2.title)}</h2> <p class="text-gray-700 text-base">${escape_html(item2.excerpt)}</p> <button class="font-bold text-lg text-gray-800 underline mt-4 hover:font-extrabold text-black"><a${attr("href", `/post/${item2.slug.current}`)}>Les mer</a></button></div></div>`);
+      let item = each_array[$$index];
+      $$renderer2.push(`<div class="bg-white"><div class="aspect-w-1 aspect-h-1 w-full"><img class="object-cover h-[300px] w-full"${attr("src", urlFor(item.mainImage).url())} alt="Post image"/></div> <div class="p-6"><h2 class="text-2xl font-bold mb-2">${escape_html(item.title)}</h2> <p class="text-gray-700 text-base">${escape_html(item.excerpt)}</p> <button class="font-bold text-lg text-gray-800 underline mt-4 hover:font-extrabold text-black"><a${attr("href", `/post/${item.slug.current}`)}>Les mer</a></button></div></div>`);
     }
     $$renderer2.push(`<!--]--></div>`);
     bind_props($$props, { content });
@@ -11058,11 +11059,11 @@ function Hero($$renderer, $$props) {
 }
 function Banner($$renderer, $$props) {
   $$renderer.component(($$renderer2) => {
-    let banner2, hotspot, objectPositionStyle;
+    let banner, hotspot, objectPositionStyle;
     let content = $$props["content"];
     let x2, y;
-    banner2 = content && content.banner ? content.banner : null;
-    hotspot = banner2 && banner2.mainImage && banner2.mainImage.hotspot ? banner2.mainImage.hotspot : null;
+    banner = content && content.banner ? content.banner : null;
+    hotspot = banner && banner.mainImage && banner.mainImage.hotspot ? banner.mainImage.hotspot : null;
     if (hotspot) {
       x2 = hotspot.x * 100;
       y = hotspot.y * 100;
@@ -11071,11 +11072,11 @@ function Banner($$renderer, $$props) {
     {
       $$renderer2.push("<!--[!-->");
     }
-    $$renderer2.push(`<!--]--> <div class="opacity-80 banner bg-cover bg-center h-[500px] flex items-center justify-center"${attr_style(`${stringify2(objectPositionStyle)} background-image: url(${stringify2(urlFor(banner2.mainImage).url())})`)}><div class="text-white p-5 w-10/12 md:w-6/12 mx-auto bg-black opacity-90"><h2 class="text-4xl font-bold mb-4">${escape_html(banner2.bannerTitle)}</h2> <div class="mb-8">`);
-    if (banner2.bannerBody) {
+    $$renderer2.push(`<!--]--> <div class="opacity-80 banner bg-cover bg-center h-[500px] flex items-center justify-center"${attr_style(`${stringify2(objectPositionStyle)} background-image: url(${stringify2(urlFor(banner.mainImage).url())})`)}><div class="text-white p-5 w-10/12 md:w-6/12 mx-auto bg-black opacity-90"><h2 class="text-4xl font-bold mb-4">${escape_html(banner.bannerTitle)}</h2> <div class="mb-8">`);
+    if (banner.bannerBody) {
       $$renderer2.push("<!--[-->");
       $$renderer2.push(`<!--[-->`);
-      const each_array = ensure_array_like(banner2.bannerBody);
+      const each_array = ensure_array_like(banner.bannerBody);
       for (let $$index_1 = 0, $$length = each_array.length; $$index_1 < $$length; $$index_1++) {
         let block2 = each_array[$$index_1];
         $$renderer2.push(`<!--[-->`);
@@ -11091,9 +11092,9 @@ function Banner($$renderer, $$props) {
       $$renderer2.push("<!--[!-->");
     }
     $$renderer2.push(`<!--]--></div> `);
-    if (banner2.bannerLink) {
+    if (banner.bannerLink) {
       $$renderer2.push("<!--[-->");
-      $$renderer2.push(`<a${attr("href", banner2.bannerLink)} class="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">${escape_html(banner2.bannerCTA)}</a>`);
+      $$renderer2.push(`<a${attr("href", banner.bannerLink)} class="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600">${escape_html(banner.bannerCTA)}</a>`);
     } else {
       $$renderer2.push("<!--[!-->");
     }
@@ -11111,8 +11112,8 @@ function BrandGrid($$renderer, $$props) {
     $$renderer2.push(`<!--]--> <div class="my-8 mx-4"><div class="w-full text-center"><h2 class="text-4xl w-full font-bold">${escape_html(content.brands.title)}</h2></div> <div class="flex flex-wrap justify-center py-6"><!--[-->`);
     const each_array = ensure_array_like(brands);
     for (let $$index = 0, $$length = each_array.length; $$index < $$length; $$index++) {
-      let item2 = each_array[$$index];
-      $$renderer2.push(`<div class="w-1/2 h-12 md:h-24 md:w-1/3 lg:w-1/5 xl:w-1/6 2xl:w-1/7 flex justify-center items-end"><img class="w-full object-contain filter grayscale mx-4 my-2 px-2 md:px-8"${attr("src", urlFor(item2.brandLogo).url())}${attr("alt", item2.brandName)}/></div>`);
+      let item = each_array[$$index];
+      $$renderer2.push(`<div class="w-1/2 h-12 md:h-24 md:w-1/3 lg:w-1/5 xl:w-1/6 2xl:w-1/7 flex justify-center items-end"><img class="w-full object-contain filter grayscale mx-4 my-2 px-2 md:px-8"${attr("src", urlFor(item.brandLogo).url())}${attr("alt", item.brandName)}/></div>`);
     }
     $$renderer2.push(`<!--]--></div></div>`);
     bind_props($$props, { content });
@@ -11183,7 +11184,7 @@ var init__3 = __esm({
     index3 = 2;
     component3 = async () => component_cache3 ?? (component_cache3 = (await Promise.resolve().then(() => (init_page_svelte(), page_svelte_exports))).default);
     universal_id = "src/routes/+page.ts";
-    imports3 = ["_app/immutable/nodes/2.CJ_z0RW3.js", "_app/immutable/chunks/DXnBOYcI.js", "_app/immutable/chunks/Dp1pzeXC.js", "_app/immutable/chunks/CBbuBPfZ.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/CsADvZg0.js", "_app/immutable/chunks/5-z_T_YA.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/CrqJEF-O.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/eNzDW-GZ.js", "_app/immutable/chunks/D4hICAc4.js", "_app/immutable/chunks/BE3ftbkZ.js", "_app/immutable/chunks/wL22vLqa.js"];
+    imports3 = ["_app/immutable/nodes/2.DcX2QZ8l.js", "_app/immutable/chunks/DXnBOYcI.js", "_app/immutable/chunks/Dp1pzeXC.js", "_app/immutable/chunks/CBbuBPfZ.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/fLdaqtOV.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/CsADvZg0.js", "_app/immutable/chunks/5-z_T_YA.js", "_app/immutable/chunks/BSTNQZyB.js", "_app/immutable/chunks/CrqJEF-O.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/eNzDW-GZ.js", "_app/immutable/chunks/D4hICAc4.js", "_app/immutable/chunks/BE3ftbkZ.js", "_app/immutable/chunks/wL22vLqa.js"];
     stylesheets3 = [];
     fonts3 = [];
   }
@@ -11226,44 +11227,44 @@ function RichText($$renderer, $$props) {
     $$renderer2.push(`<!--[-->`);
     const each_array = ensure_array_like(blocks);
     for (let $$index_3 = 0, $$length = each_array.length; $$index_3 < $$length; $$index_3++) {
-      let item2 = each_array[$$index_3];
-      if (item2.style === "h1") {
+      let item = each_array[$$index_3];
+      if (item.style === "h1") {
         $$renderer2.push("<!--[-->");
-        $$renderer2.push(`<h1 class="text-4xl font-semibold">${escape_html(item2.children[0].text)}</h1>`);
+        $$renderer2.push(`<h1 class="text-4xl font-semibold">${escape_html(item.children[0].text)}</h1>`);
       } else {
         $$renderer2.push("<!--[!-->");
-        if (item2.style === "h2") {
+        if (item.style === "h2") {
           $$renderer2.push("<!--[-->");
-          $$renderer2.push(`<h2 class="text-3xl font-semibold">${escape_html(item2.children[0].text)}</h2>`);
+          $$renderer2.push(`<h2 class="text-3xl font-semibold">${escape_html(item.children[0].text)}</h2>`);
         } else {
           $$renderer2.push("<!--[!-->");
-          if (item2.style === "h3") {
+          if (item.style === "h3") {
             $$renderer2.push("<!--[-->");
-            $$renderer2.push(`<h3 class="text-2xl font-semibold">${escape_html(item2.children[0].text)}</h3>`);
+            $$renderer2.push(`<h3 class="text-2xl font-semibold">${escape_html(item.children[0].text)}</h3>`);
           } else {
             $$renderer2.push("<!--[!-->");
-            if (item2.style === "h4") {
+            if (item.style === "h4") {
               $$renderer2.push("<!--[-->");
-              $$renderer2.push(`<h4 class="text-xl font-semibold">${escape_html(item2.children[0].text)}</h4>`);
+              $$renderer2.push(`<h4 class="text-xl font-semibold">${escape_html(item.children[0].text)}</h4>`);
             } else {
               $$renderer2.push("<!--[!-->");
-              if (item2.style === "strong") {
+              if (item.style === "strong") {
                 $$renderer2.push("<!--[-->");
-                $$renderer2.push(`<p class="py-2 font-bold">${escape_html(item2.children[0].text)}</p>`);
+                $$renderer2.push(`<p class="py-2 font-bold">${escape_html(item.children[0].text)}</p>`);
               } else {
                 $$renderer2.push("<!--[!-->");
-                if (item2.style === "blockquote") {
+                if (item.style === "blockquote") {
                   $$renderer2.push("<!--[-->");
                   $$renderer2.push(`<blockquote${attr_class(`
         py-2 italic text-lg border-l-4 border-gray-500 pl-4
         ${customStyles.width ? `${customStyles.width}` : "w-full"}
-      `)}>${escape_html(item2.children[0].text)}</blockquote>`);
+      `)}>${escape_html(item.children[0].text)}</blockquote>`);
                 } else {
                   $$renderer2.push("<!--[!-->");
-                  if (item2.listItem === "bullet") {
+                  if (item.listItem === "bullet") {
                     $$renderer2.push("<!--[-->");
                     $$renderer2.push(`<ul class="list-disc list-inside"><!--[-->`);
-                    const each_array_1 = ensure_array_like(item2.children);
+                    const each_array_1 = ensure_array_like(item.children);
                     for (let $$index = 0, $$length2 = each_array_1.length; $$index < $$length2; $$index++) {
                       let child = each_array_1[$$index];
                       $$renderer2.push(`<li>${escape_html(child.text)}</li>`);
@@ -11271,10 +11272,10 @@ function RichText($$renderer, $$props) {
                     $$renderer2.push(`<!--]--></ul>`);
                   } else {
                     $$renderer2.push("<!--[!-->");
-                    if (item2.markDefs && item2.markDefs.length > 0 && item2.markDefs[0]._type === "link") {
+                    if (item.markDefs && item.markDefs.length > 0 && item.markDefs[0]._type === "link") {
                       $$renderer2.push("<!--[-->");
-                      $$renderer2.push(`<a${attr("href", item2.markDefs[0].href)}${attr_class(clsx2(customStyles.linkColor || "text-blue-500"))}><!--[-->`);
-                      const each_array_2 = ensure_array_like(item2.children);
+                      $$renderer2.push(`<a${attr("href", item.markDefs[0].href)}${attr_class(clsx2(customStyles.linkColor || "text-blue-500"))}><!--[-->`);
+                      const each_array_2 = ensure_array_like(item.children);
                       for (let $$index_1 = 0, $$length2 = each_array_2.length; $$index_1 < $$length2; $$index_1++) {
                         let child = each_array_2[$$index_1];
                         $$renderer2.push(`<!---->${escape_html(child.text)}`);
@@ -11283,7 +11284,7 @@ function RichText($$renderer, $$props) {
                     } else {
                       $$renderer2.push("<!--[!-->");
                       $$renderer2.push(`<p class="py-2"><!--[-->`);
-                      const each_array_3 = ensure_array_like(item2.children);
+                      const each_array_3 = ensure_array_like(item.children);
                       for (let $$index_2 = 0, $$length2 = each_array_3.length; $$index_2 < $$length2; $$index_2++) {
                         let child = each_array_3[$$index_2];
                         if (child.marks && child.marks.includes("strong")) {
@@ -13790,7 +13791,7 @@ var options = {
 		<div class="error">
 			<span class="status">` + status + '</span>\n			<div class="message">\n				<h1>' + message + "</h1>\n			</div>\n		</div>\n	</body>\n</html>\n"
   },
-  version_hash: "zzjvsv"
+  version_hash: "1gdcjp2"
 };
 async function get_hooks() {
   let handle;
@@ -15656,7 +15657,7 @@ async function render_response({
   if (page_config.ssr && page_config.csr) {
     body2 += `
 			${fetched.map(
-      (item2) => serialize_data(item2, resolve_opts.filterSerializedResponseHeaders, !!state2.prerendering)
+      (item) => serialize_data(item, resolve_opts.filterSerializedResponseHeaders, !!state2.prerendering)
     ).join("\n			")}`;
   }
   if (page_config.csr) {
@@ -17686,7 +17687,7 @@ var manifest = (() => {
     assets: /* @__PURE__ */ new Set([".DS_Store", "Aapenhetsloven.pdf", "TeamPicture.png", "bilXtra_logo.png", "default_profile.jpg", "favicon.png", "global.css", "image_1.png", "image_2.png", "image_3.png", "image_4.png", "image_5.png", "logo.webp", "profilePic_1.png", "profilePic_2.png", "profilePic_3.png", "profilePic_4.png", "sanity.svg", "svelte.svg"]),
     mimeTypes: { ".pdf": "application/pdf", ".png": "image/png", ".jpg": "image/jpeg", ".css": "text/css", ".webp": "image/webp", ".svg": "image/svg+xml" },
     _: {
-      client: { start: "_app/immutable/entry/start.C6crTfh6.js", app: "_app/immutable/entry/app.DE0a-hMS.js", imports: ["_app/immutable/entry/start.C6crTfh6.js", "_app/immutable/chunks/CYahJKwF.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/entry/app.DE0a-hMS.js", "_app/immutable/chunks/Dp1pzeXC.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/5-z_T_YA.js", "_app/immutable/chunks/fFWynACa.js", "_app/immutable/chunks/CrqJEF-O.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js"], stylesheets: [], fonts: [], uses_env_dynamic_public: false },
+      client: { start: "_app/immutable/entry/start.C8cf5EdH.js", app: "_app/immutable/entry/app.BTb7TnwH.js", imports: ["_app/immutable/entry/start.C8cf5EdH.js", "_app/immutable/chunks/DSJ-Qw6O.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/DVmcspCf.js", "_app/immutable/chunks/BUApaBEI.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/entry/app.BTb7TnwH.js", "_app/immutable/chunks/Dp1pzeXC.js", "_app/immutable/chunks/LOdgb3q2.js", "_app/immutable/chunks/Dskp9KqV.js", "_app/immutable/chunks/BniCQta6.js", "_app/immutable/chunks/Bl-_U8ph.js", "_app/immutable/chunks/7YGlKFBW.js", "_app/immutable/chunks/5-z_T_YA.js", "_app/immutable/chunks/fFWynACa.js", "_app/immutable/chunks/CrqJEF-O.js", "_app/immutable/chunks/DQc0Uil7.js", "_app/immutable/chunks/DVmcspCf.js"], stylesheets: [], fonts: [], uses_env_dynamic_public: false },
       nodes: [
         __memo(() => Promise.resolve().then(() => (init__(), __exports))),
         __memo(() => Promise.resolve().then(() => (init__2(), __exports2))),
