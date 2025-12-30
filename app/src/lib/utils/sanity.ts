@@ -13,7 +13,9 @@ if (!PUBLIC_SANITY_PROJECT_ID || !PUBLIC_SANITY_DATASET) {
 export const client = createClient({
 	projectId: PUBLIC_SANITY_PROJECT_ID,
 	dataset: PUBLIC_SANITY_DATASET,
-	useCdn: false, // `false` if you want to ensure fresh data
+	// Use Sanity CDN in production to reduce bandwidth and origin traffic.
+	// Keep it off in dev so content updates show up immediately.
+	useCdn: !import.meta.env.DEV,
 	apiVersion: '2023-03-20' // date of setup
 });
 

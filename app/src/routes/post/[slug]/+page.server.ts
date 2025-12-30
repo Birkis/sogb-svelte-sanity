@@ -1,12 +1,16 @@
 import { error } from '@sveltejs/kit';
-import type { PageLoad } from './$types';
-import { getPost } from '$lib/utils/sanity';
+import type { PageServerLoad } from './$types';
 
-export const ssr = false;
+import { DEFAULT_CACHE_CONTROL } from '$lib/server/cache';
+import { getPost } from '$lib/server/sanity';
 
-export const load: PageLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params, setHeaders }) => {
+	setHeaders({
+		'cache-control': DEFAULT_CACHE_CONTROL
+	});
+
 	const post = await getPost(params.slug);
-	
+
 	if (post) {
 		return {
 			title: post.title,
@@ -20,3 +24,5 @@ export const load: PageLoad = async ({ params }) => {
 
 	throw error(404, 'Not found');
 };
+
+
