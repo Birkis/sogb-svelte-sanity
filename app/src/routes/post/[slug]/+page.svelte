@@ -36,7 +36,7 @@
 	{#if data.mainImage}
 		<img
 			class=" w-full h-[400px] object-cover"
-			src={urlFor(data.mainImage.asset).url()}
+			src={urlFor(data.mainImage.asset).width(1600).auto('format').url()}
 			alt={`Cover image for ${data.title}`}
 			style={imagePosition}
 		/>

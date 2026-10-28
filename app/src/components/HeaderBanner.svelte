@@ -24,7 +24,7 @@
       {/if}
   
       {#if bannerData.mainImage}
-        <img src={urlFor(bannerData.mainImage.asset).url()} alt={bannerData.bannerTitle} class="banner-image mt-4" />      {/if}
+        <img src={urlFor(bannerData.mainImage.asset).width(1200).auto('format').url()} alt={bannerData.bannerTitle} class="banner-image mt-4" />      {/if}
     {/if}
   </div>
   

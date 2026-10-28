@@ -10,5 +10,5 @@
 
 {#each content as item}
      <p>{item.brandName}</p>
-     <img src={urlFor(item.brandLogo).url()} alt={item.brandName}>
+     <img src={urlFor(item.brandLogo).width(600).auto('format').url()} alt={item.brandName}>
 {/each}

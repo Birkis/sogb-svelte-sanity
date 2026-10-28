@@ -5,13 +5,10 @@ import { DEFAULT_CACHE_CONTROL } from '$lib/server/cache';
 import { getPost } from '$lib/server/sanity';
 
 export const load: PageServerLoad = async ({ params, setHeaders }) => {
-	setHeaders({
-		'cache-control': DEFAULT_CACHE_CONTROL
-	});
-
 	const post = await getPost(params.slug);
 
 	if (post) {
+		setHeaders({ 'cache-control': DEFAULT_CACHE_CONTROL });
 		return {
 			title: post.title,
 			body: post.body,
