@@ -34,7 +34,7 @@
 
 <div
 	class="opacity-80 banner bg-cover bg-center h-[500px] flex items-center justify-center"
-	style="{objectPositionStyle} background-image: url({urlFor(banner.mainImage).url()})"
+	style="{objectPositionStyle} background-image: url({urlFor(banner.mainImage).width(1600).auto('format').url()})"
 >
 	<div class=" text-white p-5 w-10/12 md:w-6/12 mx-auto bg-black opacity-90">
 		<h2 class="text-4xl font-bold mb-4 ">{banner.bannerTitle}</h2>

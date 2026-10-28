@@ -62,3 +62,9 @@ The `/app` and `/studio` directories are designed to be deployed separately. Her
 ---
 
 I hope this meets your project's needs! If you have any further customization requests, feel free to ask.
+
+## Content delivery and troubleshooting
+
+Public pages fetch published Sanity content on the server using the Sanity API CDN in production. Successful responses request five minutes of shared-cache freshness, with a one-day stale-while-revalidate window and a one-day stale-if-error window. Content updates may therefore take time to appear. Vercel's cache is best-effort and regional: an uncached page still needs Sanity to be available, and cached HTML does not guarantee that Sanity-hosted images or files are available. Test cache behavior on the deployed environment, including client navigation and failure responses.
+
+For a recurring outage, compare the outage timestamps and HTTP status/error messages in Vercel function and deployment logs with the Sanity project's usage and billing dashboards. Check API requests, API CDN and asset bandwidth, storage, plan limits, and billing separately, as well as Vercel usage and traffic or bot spikes. Record the specific limit and response before changing a plan. Inspect `x-vercel-cache` on repeated requests to confirm whether pages are being cached. Check image and file responses separately from HTML.
