@@ -37,13 +37,23 @@ export async function getPosts(): Promise<Post[]> {
 }
 
 export async function getPost(slug: string): Promise<Post> {
-	return await sanityServerClient.fetch(groq`*[_type == "post" && slug.current == $slug][0]`, {
-		slug
-	});
+	return await sanityServerClient.fetch(
+		groq`*[_type == "post" && slug.current == $slug][0] {
+			...,
+			pdfFile { ..., asset->{ _id, url } }
+		}`,
+		{ slug }
+	);
 }
 
 export async function getPostPage(page: string): Promise<Post> {
-	return await sanityServerClient.fetch(groq`*[_type == "post" && slug.current == $page][0]`, { page });
+	return await sanityServerClient.fetch(
+		groq`*[_type == "post" && slug.current == $page][0] {
+			...,
+			pdfFile { ..., asset->{ _id, url } }
+		}`,
+		{ page }
+	);
 }
 
 export async function getHomePage(): Promise<any> {
@@ -182,5 +192,3 @@ export async function getForms(): Promise<Forms[]> {
         }
       }`);
 }
-
-

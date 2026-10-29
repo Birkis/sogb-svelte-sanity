@@ -1,59 +1,96 @@
 <script lang="ts">
-	import type { RichTextBlock } from "$lib/utils/sanity";
+	import { PortableText, type InputValue } from '@portabletext/svelte';
+	import RichTextEmail from './RichTextEmail.svelte';
+	import RichTextImage from './RichTextImage.svelte';
 
+	export let blocks: InputValue | null | undefined = [];
+	export let customStyles: Record<string, string> = {};
+</script>
 
-    export let blocks : RichTextBlock[];
-    // Her bruker vi Record som er en slags 'åpen' type, som kan ha hvilken som helst key og value
-    // Det er nyttig fordi jeg kan sette inn hva som helst hvor som helst uten å få en feilmelding
-    export let customStyles : Record<string, string> = {};
-  
-  </script>
-  
-  {#each blocks as item (item._key)}
-  {#if item.style === 'h1'}
-    <h1 class="text-4xl font-semibold">{item.children[0].text}</h1>
-  {:else if item.style === 'h2'}
-    <h2 class="text-3xl font-semibold">{item.children[0].text}</h2>
-  {:else if item.style === 'h3'}
-    <h3 class="text-2xl font-semibold">{item.children[0].text}</h3>
-  {:else if item.style === 'h4'}
-    <h4 class="text-xl font-semibold">{item.children[0].text}</h4>
-  {:else if item.style === 'strong'}
-    <p class="py-2 font-bold">{item.children[0].text}</p>
-  {:else if item.style === 'blockquote'}
-      <blockquote
-      class={`
-        py-2 italic text-lg border-l-4 border-gray-500 pl-4
-        ${customStyles.width ? `${customStyles.width}` : 'w-full'}
-      `}
-    >
-      {item.children[0].text}
-    </blockquote>
-  {:else if item.listItem === 'bullet'}
-    <ul class="list-disc list-inside">
-      {#each item.children as child (child._key)}
-        <li>{child.text}</li>
-      {/each}
-    </ul>
-  {:else if item.markDefs && item.markDefs.length > 0 && item.markDefs[0]._type === 'link'}
-    <!-- I class under setter jeg inn en custom style for link color, som bare noe jeg setter her og da også i RichText blokken -->
-    <a href={item.markDefs[0].href} class={customStyles.linkColor || "text-blue-500"} >
-      {#each item.children as child (child._key)}
-        {child.text}
-      {/each}
-    </a>
-  {:else}
-    <p class="py-2">
-      {#each item.children as child (child._key)}
-      {#if child.marks && child.marks.includes('strong')}
-        <strong>{child.text}</strong>
-      {:else if child.marks && child.marks.includes('em')}
-        <em>{child.text}</em>
-      {:else}
-        {child.text}
-      {/if}
-    {/each}
-    </p>
-  {/if}
-{/each}
-  
+<div class="rich-text {customStyles.width || ''}">
+	<PortableText
+		value={blocks ?? []}
+		components={{ marks: { email: RichTextEmail }, types: { image: RichTextImage } }}
+	/>
+</div>
+
+<style>
+	.rich-text {
+		color: var(--ink);
+		font-size: 17px;
+		line-height: 1.85;
+		overflow-wrap: anywhere;
+	}
+	.rich-text :global(p) {
+		margin: 0 0 1.4em;
+	}
+	.rich-text :global(h1),
+	.rich-text :global(h2),
+	.rich-text :global(h3),
+	.rich-text :global(h4) {
+		margin: 1.5em 0 0.5em;
+		font-family: var(--font-display);
+		font-weight: 800;
+		line-height: 1.12;
+		text-transform: uppercase;
+	}
+	.rich-text :global(h1),
+	.rich-text :global(h2) {
+		font-size: clamp(30px, 3.3vw, 44px);
+	}
+	.rich-text :global(h3) {
+		font-size: 30px;
+	}
+	.rich-text :global(h4) {
+		font-size: 24px;
+	}
+	.rich-text :global(a) {
+		color: var(--accent);
+		text-decoration: underline;
+		text-underline-offset: 4px;
+		text-decoration-thickness: 1px;
+	}
+	.rich-text :global(a:hover) {
+		text-decoration-thickness: 2px;
+	}
+	.rich-text :global(strong) {
+		font-weight: 700;
+	}
+	.rich-text :global(ul),
+	.rich-text :global(ol) {
+		margin: 0 0 1.5em;
+		padding-left: 1.4em;
+	}
+	.rich-text :global(ul) {
+		list-style: disc;
+	}
+	.rich-text :global(ol) {
+		list-style: decimal;
+	}
+	.rich-text :global(li) {
+		margin: 0.35em 0;
+		padding-left: 0.3em;
+	}
+	.rich-text :global(li::marker) {
+		color: var(--accent);
+	}
+	.rich-text :global(blockquote) {
+		margin: 2em 0;
+		padding: 8px 0 8px 28px;
+		border-left: 3px solid var(--accent);
+		font-size: 23px;
+		font-weight: 600;
+		line-height: 1.55;
+	}
+	.rich-text :global(> :first-child) {
+		margin-top: 0;
+	}
+	.rich-text :global(> :last-child) {
+		margin-bottom: 0;
+	}
+	@media (max-width: 600px) {
+		.rich-text {
+			font-size: 16px;
+		}
+	}
+</style>
